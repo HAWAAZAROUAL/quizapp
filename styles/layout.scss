@@ -1,5 +1,9 @@
 // See: https://sass-lang.com/
 
+// NOTES ON CSS, THE . IS FOR CLASSES, THE # IS FOR id
+
+
+
 body {
   background-color: #EEE;
 
@@ -7,3 +11,50 @@ body {
     color: #244751;
   }
 }
+
+// Create quiz
+.create-quiz {
+  title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: column;
+    color:seagreen;
+    background-color: lightgray;
+    border: solid 3px black;
+  }
+  h1 {
+  color: black;
+  background-color: lightgray;
+  border: solid 3px black;
+
+  }
+}
+
+// Index.ejs
+.public-quizzes-homepage {
+  display:flex;
+  align-items: row;
+  justify-content: space-between;
+  background-color: white;
+  color: black;
+
+}
+.public-quizzes {
+  background-color: lightskyblue;
+  color: black;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+//qquiz.ejs
+
+

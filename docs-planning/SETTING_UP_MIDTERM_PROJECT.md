@@ -17,17 +17,13 @@ Hawaa:
   strengths: I'm more comfortable with html, css, and sql
   weaknesses: I suck at promises, and javscript is tricky sometimes for me. 
 
-
 Brian: 
   strength: html, css, sql
   weakness: js
 
-
-
 Amy:
 strength: sql 
 weakness: css html promise too
-
 
 
 ## Check the requirements 
@@ -39,17 +35,13 @@ weakness: css html promise too
 - As a user I can make fun quizzes for my friends and I to have fun with.
 - As a user I can save the quizzes I made.
 - What if the user can update a quiz after it is made... aka add, delete, edit.
-
 - As a user, I can make the quizzes unlisted and make it private but I can share the URL to public
 - As a user I can see a list of public quizzes that's available to everybody
 - As a user, I can attempt a quiz and either get it right or wrong 
 - As a user, I will see my previous attempts and results 
-
-
 - As a user, i can  see the results of the quiz.
 - As a user, I can share the link of my quiz result
 - As a user, I can know the detail of wrong or right answer
-
 
 
 ## Identify the nouns 
@@ -89,9 +81,6 @@ weakness: css html promise too
 - minimal, modern
 - balsamiq, moqups, draw.io, pen/paper
 - Steal the design
-
-## Planning folder 
-- create a .md file and share with the member
 
 ## Features
 - If not going to demo, don't build it
@@ -141,9 +130,16 @@ app.get('/login/:id', (req, res) => {
 - Front End: HTML/CSS/JS/jQuery/SCSS
 - Back End: node/express/postgres
 
-## SPA (Single Page App) vs. multi-page
+## multi-page
+EJS files
+- Create-quiz
+- My-quizzes
+- Homepage- login
+- Homepage- Public quizzes
+- Quiz-page
+- Result page
 
-## Splitting up the work
-1. Vertical - each team member is working on a diff part of the stack
-2. Horizontal - each team member is working on the same layer 
-3. Pair programming 
+
+## Splitting 
+-edit quiz?up the work
+1. Pair programming 
