@@ -35,13 +35,21 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
+<<<<<<< HEAD
 const quizRouter = require('./routes/quiz-routers');
+=======
+const apiRoutes = require("./routes/apiRoutes");
+const database = require("./routes/database");
+
+>>>>>>> 76e3c660d74d990314f8ddfc841c0cbf9c6e8958
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use('/api/quizzes',quizRouter);
 // Note: mount other resources here, using the same pattern above
+const apiRouter = express.Router();
+app.use("/myquiz", apiRoutes(apiRouter, database));
 
 
 // Home page
