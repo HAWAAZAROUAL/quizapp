@@ -1,4 +1,5 @@
-const pool = require('../server.js');
+const { response } = require('express');
+const pool = require('../../server.js');
 
 // CREATE all queries
 
@@ -6,12 +7,12 @@ const pool = require('../server.js');
 const getAllQuizzes = function(user_id) {
   return pool
     .query(`
-      SELECT quizzes.*
+      SELECT *
       FROM quizzes
       JOIN users ON users.id = user_id
       WHERE users.id = $1;
     `, [user_id])
-    .then(res => res.rows)
+    .then(response => response.rows)
     .catch((err) => {
       console.log(err.message);
     });
