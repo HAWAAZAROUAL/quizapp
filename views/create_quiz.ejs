@@ -35,14 +35,28 @@
     <textarea name="text" id="new-quiz-name" placeholder="Type a title"></textarea>
 
     <h2 class="quiz-question"> Write your question here</h2>
-    <p> name="text" id="quiz-textbox" placeholder="Write your question here"></p>
+    <div class="write-question">
+      <input type="text" name="option">
 
     <!-- each div has a possible answer-->
-    <div class="possible-answer">
-      <input type="text" name="option"
-
-  </form>
-  <button type="submit">Create Quiz</button>
-
+    <h2 class="quiz-question"> Write the answers here</h2>
+    <form id="answers-form" method="POST" action="/quiz/<% question_id%>">
+      <div class="possible-answer-container">
+        <label for="answer1">Answer 1</label>
+        <input id="answerbox1" type="text" name="answer1">
+        <br>
+        <label for>Answer 2</label>
+        <input type="text" name="option">
+        <br>
+        <label>Answer 3</label>
+        <input type="text" name="option">
+        <br>
+        <label>Answer 4</label>
+        <input type="text" name="option">
+        <br>
+        <button type="submit">Create Quiz</button>
+      </div>
+    </form>
+    </form>
     </body>
 >>>>>>> 76e3c660d74d990314f8ddfc841c0cbf9c6e8958
