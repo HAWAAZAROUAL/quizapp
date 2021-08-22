@@ -3,14 +3,15 @@
   <head>
     <title>Start the Quiz!</title>
 
+    <!-- CSS FILE -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/routes/quiz.js"></script>
 
-    <!-- CSS FILE -->
   </head>
 
   <body>
@@ -19,43 +20,51 @@
     </header>
     <!-- general quiz page layout -->
 
+
+
     <div class="w3-sidebar w3-bar-block" style="width:25%;right:0">
       <h5 class="w3-bar-item">Menu</h5>
+      <br>
       <a href="#" class="w3-bar-item w3-button">Question 1</a>
+      <br>
       <a href="#" class="w3-bar-item w3-button">Question 2</a>
+      <br>
       <a href="#" class="w3-bar-item w3-button">Question 3</a>
     </div>
+
 
     <div style="margin-right:25%">
     ... page content ...
     </div>
+    <div class="quiz_content">
+      <div>
+        <div>
+          <% questionTitle %>
+        </div>
+        <div><% questionId %></div>
+        <% answerId %>
+          <div>
+            <input type="radio" id="question" name="question" value="<% answerId %>">
+            <label>
+              <% answerId %>
+            </label>
+          </div>
 
+
+      </div>
+      <div class="quiz_sidebar">
+        <table>
+
+            <tr><td><% questionId %></td></tr>
+
+        </table>
+      </div>
+    </div>
 
     </body>
     </html>
 
-<!--
-    <div class="quiz_content">
-      <div>
-        <div>
-          <% Quiz_title %>
-        </div>
-        <div><%question%></div>
-        <% for(let answer in answers) { %>
-          <div>
-            <input type="radio" id="question" name="question" value="<% question %>">
-            <label>
-              <% answer %>
-            </label>
-          </div>
-          <%}%>
-            <div><a href="/quiz/<% quiz_id -1 %>">Back</a><a href="/quiz/<% quiz_id +1 %>">Next</a></div>
-      </div>
-      <div class="quiz_sidebar">
-        <table>
-          <% for(let question in questions) { %>
-            <tr><td><% question%></td></tr>
-            <%}%>
-        </table>
-      </div>
-    </div> -->
+
+
+
+

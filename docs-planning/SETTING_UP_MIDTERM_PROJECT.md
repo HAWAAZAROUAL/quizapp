@@ -156,3 +156,6 @@ EJS files
 ## Splitting 
 -edit quiz?up the work
 1. Pair programming 
+
+## Functions to make
+- 
