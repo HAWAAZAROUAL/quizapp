@@ -158,4 +158,5 @@ EJS files
 1. Pair programming 
 
 ## Functions to make
-- 
+- createQuiz : this will take the input from the question box, and answers inputted
+

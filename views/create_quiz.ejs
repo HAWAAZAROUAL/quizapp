@@ -13,7 +13,6 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/views/create_quiz.js"></script>
-    <script type="text/javascript" src="//views/apiRoutes.js" ></script>
 
 
     </head>
@@ -23,7 +22,7 @@
       <%- include('partials/_header') %>
     </header>
     <div class="create-quiz-container">
-  <h1>Create Quiz<h1>
+  <h1>Create Quiz for user id:<%- userId %><h1>
   <h1 class="quiz-title"> Quiz Title</h1>
   <form class="write-quiz-title" methods="POST" action="/createQuiz" id="new-quiz-title">
     <input name="text" id="new-quiz-name" placeholder="Type a title"></input>
@@ -37,44 +36,28 @@
     <form id="answers-form">
       <div class="possible-answer-container">
 
+        <label for="answer1">Answer1</label>
+        <input type="text"></input><input id="a1" type="radio" name="is_right"></input><br>
+        <label for="answer1">Answer2</label>
+        <input type="text"></input><input id="a2" type="radio" name="is_right"></input><br>
+        <label for="answer1">Answer3</label>
+        <input type="text"></input><input id="a3" type="radio" name="is_right"></input><br>
+        <label for="answer1">Answer4</label>
+        <input type="text"></input><input id="a4" type="radio" name="is_right"></input><br>
 
-
-
-        <label for="answer1">Answer 1
-        <input id="answerbox1" type="text" name="answer1">
-        <input type="radio" checked ="checked">
-        </label>
-
-        <br>
-
-        <label for="answer2">Answer 2
-        <input type="text" name="option">
-        <input type="radio">
-        </label>
+      </div>
 
         <br>
-
-        <label for="answer3">Answer 3
-        <input type="text" name="option">
-        <input type="radio">
-        </label>
-
-        <br>
-
-        <label for= "answer 4">Answer 4
-        <input type="text" name="option">
-        <input type="radio">
-        </label>
+        <div class="privacy-check">
+          <input id="private-check" type="radio" name="is_private" value="true" checked="checked">Private Quiz</input>
+          <input id="public-check" type="radio" name="is_private" value="false">Public Quiz</input>
         </div>
+
 
         <br>
         <div class="creating-buttons">
         <button class="add-question" type="submit"> Add a new question</button>
-        <br>
-        <label id="public-check">Public Quiz</label>
-        <input type="checkbox">
-        <label id="private-check">Private Quiz</label>
-        <input type="radio">
+
         <br>
         <button type="submit">Create Quiz</button>
 

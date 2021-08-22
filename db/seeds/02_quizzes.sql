@@ -7,5 +7,5 @@ INSERT INTO quizzes (user_id,title,is_private) VALUES (2,'Which record type maps
 INSERT INTO quizzes (user_id,title,is_private) VALUES (1,'When performing DNS resolution, what is the sequence of name servers that are queried? (In order, first to last',false);
 INSERT INTO quizzes (user_id,title,is_private) VALUES (2,'Which of the following best explains the difference between packages, modules, and libraries?',false);
 INSERT INTO quizzes (user_id,title,is_private) VALUES (1,'Should the node_modules directory be committed to your project git repo?',false);
-INSERT INTO quizzes (user_id,title,is_private) VALUES (2,'Should the package.json file be committed to a project git repo?',true);
-INSERT INTO quizzes (user_id,title,is_private) VALUES (1,'What purpose does the require() method serve in JavaScript?',false);
+INSERT INTO quizzes (user_id,title,is_private) VALUES (2,,true);
+INSERT INTO quizzes (user_id,title,is_private) VALUES (1,'Js',false);

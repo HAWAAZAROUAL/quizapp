@@ -8,7 +8,9 @@ const router  = express.Router();
 module.exports = function(db) {
 
   router.get('/:user_id', (req, res) => {
-    let templateVars = { userId: req.params.user_id };
+    let templateVars = {
+      userId: req.params.user_id,
+    };
     res.render("create_quiz", templateVars);
   });
 
