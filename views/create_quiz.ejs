@@ -22,7 +22,7 @@
       <%- include('partials/_header') %>
     </header>
     <div class="create-quiz-container">
-  <h1>Create Quiz for user id:<%- userId %><h1>
+  <h1>Create Quiz for user: <%- userName.name %><h1>
   <h1 class="quiz-title"> Quiz Title</h1>
   <form class="write-quiz-title" methods="POST" action="/createQuiz" id="new-quiz-title">
     <input name="text" id="new-quiz-name" placeholder="Type a title"></input>
@@ -34,8 +34,8 @@
     <h2 class="quiz-question"> Write the answers here</h2>
     <p> Check off the correct answer</p>
     <form id="answers-form">
-      <div class="possible-answer-container">
 
+      <div class="possible-answer-container">
         <label for="answer1">Answer1</label>
         <input type="text"></input><input id="a1" type="radio" name="is_right"></input><br>
         <label for="answer1">Answer2</label>
@@ -44,7 +44,6 @@
         <input type="text"></input><input id="a3" type="radio" name="is_right"></input><br>
         <label for="answer1">Answer4</label>
         <input type="text"></input><input id="a4" type="radio" name="is_right"></input><br>
-
       </div>
 
         <br>

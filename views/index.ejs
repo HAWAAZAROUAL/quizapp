@@ -19,34 +19,24 @@
 
 <!-- *** in CSS make sure to set to float:left, width:33% ***-->
     <h1>WELCOME TO QUIZ WIZ!</h1>
-  <span class="public-quizzes-homepage">
-    <div class="public-quizzes">
-      <h1 class="Quiz-title">Quiz on Cats</h1>
-      <p class="url-text">localhost:8080/quizwiz/:id</p>
-      <img class="Quiz-profile-image" src="https://i.guim.co.uk/img/media/7a633730f5f90db3c12f6efc954a2d5b475c3d4a/0_138_5544_3327/master/5544.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=6d246ca192c6f0c8cf3bdc40f8a43b63" width="100" height="100">
-      <button type="submit">Start!</button>
-    </div>
 
-    <div class="public-quizzes">
-      <h1 class="Quiz-title">Another quiz on cats</h1>
-      <p class="url-text">localhost:8080/quizwiz/:id</p>
-      <img class="Quiz-profile-image" src="https://i.guim.co.uk/img/media/7a633730f5f90db3c12f6efc954a2d5b475c3d4a/0_138_5544_3327/master/5544.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=6d246ca192c6f0c8cf3bdc40f8a43b63" width="100" height="100">
-      <button type="submit">Start!</button>
-    </div>
-    <div class="public-quizzes">
-      <h1 class="Quiz-title">A third Quiz on cats</h1>
-      <p class="url-text">localhost:8080/quizwiz/:id</p>
-      <img class="Quiz-profile-image" src="https://i.guim.co.uk/img/media/7a633730f5f90db3c12f6efc954a2d5b475c3d4a/0_138_5544_3327/master/5544.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=6d246ca192c6f0c8cf3bdc40f8a43b63" width="100" height="100">
-      <button type="submit">Start!</button>
-    </div>
+    <% for (let quiz of userData) {%>
 
-    <div class="public-quizzes">
-      <h1 class="Quiz-title">Fourth Quiz on cats</h1>
-      <p class="url-text">localhost:8080/quizwiz/:id</p>
-      <img class="Quiz-profile-image" src="https://i.guim.co.uk/img/media/7a633730f5f90db3c12f6efc954a2d5b475c3d4a/0_138_5544_3327/master/5544.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=6d246ca192c6f0c8cf3bdc40f8a43b63" width="100" height="100">
-      <button type="submit">Start!</button>
-    </div>
-  </span>
+    <span class="public-quizzes-homepage">
+      <div class="my-quizzes">
+        <h3 class="my-quiz-title">Public Quiz #<%- userData.length %>: <%- quiz.title %></h3>
+
+        <p class="url-text">localhost:8080/myquiz/<%- quiz.userid %>/<%- quiz.quizid %></p>
+
+        <p class="url-text">Created By: <%- quiz.name %></p>
+
+        <img class="Quiz-profile-image" src="https://i.guim.co.uk/img/media/7a633730f5f90db3c12f6efc954a2d5b475c3d4a/0_138_5544_3327/master/5544.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=6d246ca192c6f0c8cf3bdc40f8a43b63" width="100" height="100">
+        <button type="submit">Start!</button>
+        <button type="submit">Delete</button>
+      </div>
+      <%}%>
+
+    </span>
 
   </body>
 </html>

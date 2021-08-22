@@ -55,19 +55,35 @@ app.use("/quiz", quizRoutes(db));
 app.use("/myquiz", myQuizzes(db));
 
 
+
+// Home page
+// Warning: avoid creating more routes in this file!
+// Separate them into separate routes files (see above).
+
+
+app.get("/", (req, res) => {
+  db.query(`
+  SELECT quizzes.id as quizid, quizzes.title, quizzes.is_private, users.id as userid, users.name
+  FROM quizzes
+  JOIN users ON users.id = user_id
+  WHERE quizzes.is_private = false;
+  `)
+    .then(user => {
+      let templateVars = { userData: user.rows };
+      res.render("index", templateVars);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
 app.get('/login/:id', (req, res) => {
   // session cookies
   req.session.user_id = req.params.id;
   //cookie parse
   res.redirect('/');
-});
-
-
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
-app.get("/", (req, res) => {
-  res.render("index");
 });
 
 app.listen(PORT, () => {

@@ -8,13 +8,23 @@ const router  = express.Router();
 module.exports = function(db) {
 
   router.get('/:user_id', (req, res) => {
-    let templateVars = {
-      userId: req.params.user_id,
-    };
-    res.render("create_quiz", templateVars);
+
+    db.query(`
+      SELECT users.name
+      FROM users
+      WHERE users.id = $1;
+    `, [req.params.user_id])
+      .then(user => {
+        let templateVars = { userName: user.rows[0] };
+        res.render("create_quiz", templateVars);
+
+        console.log("###############", user.rows[0].name);
+      })
+      .catch(error => {
+        res.status(500)
+          .json({ error: error.message });
+      });
   });
-
-
-
   return router;
+
 };

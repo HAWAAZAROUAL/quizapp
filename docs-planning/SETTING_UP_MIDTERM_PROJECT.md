@@ -145,8 +145,8 @@ app.get('/login/:id', (req, res) => {
 
 ## multi-page
 EJS files
-- Create-quiz
-- My-quizzes
+- Create-quiz -------------------DONE/Dynamic
+- My-quizzes --------------------DONE/Dynamic
 - Homepage- login
 - Homepage- Public quizzes
 - Quiz-page
