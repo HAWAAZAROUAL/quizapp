@@ -1,3 +1,5 @@
+-- Drop and recreate Users table (Example)
+
 DROP TABLE IF EXISTS quizzes CASCADE;
 CREATE TABLE quizzes (
   id SERIAL PRIMARY KEY NOT NULL,
