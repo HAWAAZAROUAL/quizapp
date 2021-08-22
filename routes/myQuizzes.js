@@ -13,7 +13,6 @@ module.exports = function(db) {
     res.render("my_quizzes", templateVars);
   });
 
-
   return router;
 };
 

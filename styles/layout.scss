@@ -12,8 +12,23 @@ body {
   }
 }
 
+//header.ejs
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em 0 1.5em 0;
+  width: 100vw;
+  height: 120px;
+  background-color: rgb(194, 194, 255);
+  color: white;
+  font-family: "Kaisei Opti";
+  font-size: 1.8em;
+}
+
 // Create quiz
 .create-quiz {
+  background-image: linear-gradient(top-to-bottom, rgb(130, 209, 235), rgb(9, 100, 131));
   title {
     display: flex;
     justify-content: flex-start;
