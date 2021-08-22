@@ -69,6 +69,20 @@ weakness: css html promise too
 - Add:    POST  /resource
 - Delete: POST  /resource/:id/delete
 
+- Browse
+  HOME    GET localhost:8080/ -----------------------DONE
+  CREATE  GET localhost:8080/create -----------------DONE
+- Read
+  HOME    GET localhost:8080/login/:id --------------DONE
+  MyQuiz  GET localhost:8080/myquiz/:id -------------DONE
+  Quiz    GET localhost:8080/:quizid ----------------DONE
+  QuestionGET localhost:8080/:quizid/:question ------STRETCH
+  Result  GET localhost:8080/:quizid/result/:id -----DONE
+  
+  
+
+
+
 - IF AJAX:
   - Browse: GET        /resource
   - Read:   GET        /resource/:id
@@ -118,9 +132,8 @@ weakness: css html promise too
 // ex) localhost:3000/login/7
 app.get('/login/:id', (req, res) => {
   // session cookies
-  res.cookie('user_id', req.params.id);
+  req.session.user_id=req.params.id
   //cookie parse
-  res.cookie('user_id', req.params.user_id);
 
   res.redirect('/');
 })

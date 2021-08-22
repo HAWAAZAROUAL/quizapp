@@ -41,22 +41,27 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
-const apiRoutes = require("./routes/apiRoutes");
+const createQuiz = require("./routes/createQuiz");
+const quizRoutes = require("./routes/quiz");
+const myQuizzes = require("./routes/myQuizzes");
+
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
-app.use("/myquiz", apiRoutes(db));
+app.use("/create", createQuiz(db));
+app.use("/quiz", quizRoutes(db));
+app.use("/myquiz", myQuizzes(db));
+
 
 app.get('/login/:id', (req, res) => {
   // session cookies
-  req.session.user_id = req.params.id
+  req.session.user_id = req.params.id;
   //cookie parse
-
   res.redirect('/');
-})
+});
 
 
 // Home page

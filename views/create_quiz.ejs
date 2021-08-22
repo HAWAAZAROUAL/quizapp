@@ -20,39 +20,42 @@
 
   <body class="create-quiz">
     <header>
-    <nav>
-      <h1>Quiz Wiz</h1>
-      <div class=
-    </nav>
+      <%- include('partials/_header') %>
     </header>
     <div class="create-quiz-container">
   <h1>Create Quiz<h1>
   <h1 class="quiz-title"> Quiz Title</h1>
   <form class="write-quiz-title" methods="POST" action="/createQuiz" id="new-quiz-title">
-    <textarea name="text" id="new-quiz-name" placeholder="Type a title"></textarea>
+    <input name="text" id="new-quiz-name" placeholder="Type a title"></input>
 
     <h2 class="quiz-question"> Write your question here</h2>
     <div class="write-question">
       <input type="text" name="option">
-
     <!-- each div has a possible answer-->
     <h2 class="quiz-question"> Write the answers here</h2>
-    <form id="answers-form" method="POST" action="/quiz/<% question_id%>">
+    <form id="answers-form">
       <div class="possible-answer-container">
         <label for="answer1">Answer 1</label>
         <input id="answerbox1" type="text" name="answer1">
         <br>
-        <label for>Answer 2</label>
+        <label for="answer2">Answer 2</label>
         <input type="text" name="option">
         <br>
-        <label>Answer 3</label>
+        <label for="answer3">Answer 3</label>
         <input type="text" name="option">
         <br>
-        <label>Answer 4</label>
+        <label for= "answer 4">Answer 4</label>
         <input type="text" name="option">
+        <br>
+        <div class="creating-buttons">
+        <button class="add-question" type="submit"> Add a new question</button>
+        <br>
+        <button type="submit"> Public Quiz</button>
+        <button type="submit"> Private Quiz</button>
         <br>
         <button type="submit">Create Quiz</button>
       </div>
+    </div>
     </form>
     </form>
     </body>
