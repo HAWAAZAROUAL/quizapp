@@ -22,12 +22,15 @@ module.exports = function(db) {
     )
       .then((data) => {
         const quiz = data.rows;
-        console.log(data.rows);
-        const templateVars = {
-          userId: req.params.user_id,
-          questionId: quiz.question_id,
-          questionTitle: quiz.question,
-          answerId: quiz.answer_id
+        console.log("@@@@@@@@@@", req.params.quizid)
+        for (const obj of quiz)
+        console.log('----------', obj, `\n objID = ${obj.id} \n objTITLE = ${obj.title}`);
+        let templateVars = {
+          userId: req.params.user_id, // not working
+          questionId: quiz.question_id, // not working
+          questionTitle: quiz.question, // not working
+          answerId: quiz.answer_id, // not working
+          quizId: req.params.quizid
         };
         res.render("quizzes", templateVars);
       })
