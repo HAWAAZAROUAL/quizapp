@@ -10,6 +10,18 @@
     <!-- Javascript-->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <style>
+      body {
+      /* Set "my-sec-counter" to 0 */
+      counter-reset: my-sec-counter;
+      }
+
+      h2::before {
+      /* Decrement "my-sec-counter" by 1 */
+      counter-increment: my-sec-counter -1;
+      content: "Quiz " counter(my-sec-counter) ". ";
+      }
+      </style>
   </head>
 
   <body>
@@ -24,7 +36,7 @@
 
     <span class="public-quizzes-homepage">
       <div class="my-quizzes">
-        <h3 class="my-quiz-title">Public Quiz #<%- userData.length %>: <%- quiz.title %></h3>
+        <h2 class="my-quiz-title"></h2><h3><%- quiz.title %></h3>
 
         <p class="url-text">localhost:8080/myquiz/<%- quiz.userid %>/<%- quiz.quizid %></p>
 

@@ -14,10 +14,12 @@ module.exports = function(db) {
       WHERE users.id = $1;
     `, [req.params.user_id])
       .then(user => {
-        let templateVars = { userName: user.rows[0] };
+        let templateVars = {
+          userName: user.rows[0]
+        };
         res.render("results", templateVars);
 
-        console.log("###############", user.rows[0].name);
+        console.log("###############", user.rows);
       })
       .catch(error => {
         res.status(500)
@@ -25,5 +27,10 @@ module.exports = function(db) {
       });
   });
   return router;
-
 };
+
+// db.query <%- %>
+// attempt:
+// SELECT count(results.*)
+// JOIN users ON users.id = results.user_id
+// WHERE user_id = 1;

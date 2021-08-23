@@ -26,7 +26,7 @@
       <h1>testestest</h1>
 
       <br>
-      <a href="#" class="w3-bar-item w3-button">Question 1</a>
+      <a href="#" class="w3-bar-item w3-button">Quiz<%- quizData.quizid %></a>
       <br>
       <a href="#" class="w3-bar-item w3-button">Question 2</a>
       <br>
@@ -38,17 +38,25 @@
     ... page content ...
     </div>
 
+    <div>
+      <p>Quiz Question: <%- quizQuestion %></p>
+    </div>
+    <br>
+
     <% for (let quiz of quizData){%>
 
+
     <div class="quiz_content">
-        <div>
-          <p>Quiz Question: <%- quiz.question %></p>
-        </div>
+
+
         <div>
           <p>Quiz Answers: <%- quiz.answer %></p>
+          <input id="checkAnswer" type="checkbox"></input>
         </div>
+
     </div>
     <%}%>
+
     <div class="quiz_sidebar">
 
 

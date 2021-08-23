@@ -24,9 +24,11 @@ module.exports = function(db) {
         const quiz = data.rows;
 
         let templateVars = {
-          quizData: quiz
+          quizData: quiz,
+          quizQuestion: data.rows[0].question,
         };
-        console.log('@@@@@@@@@@@@@@@@@@@', templateVars);
+
+        console.log('@@@@@@@@@@@@@@@@@@@', data.rows);
         res.render("quizzes", templateVars);
       })
       .catch((err) => {

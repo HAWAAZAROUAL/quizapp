@@ -24,7 +24,7 @@ module.exports = function(db) {
         let templateVars = {userData: user.rows};
         res.render("my_quizzes", templateVars);
 
-        console.log("@@@@@@@@@@@@", user.rows);
+        console.log("@@@@@@@@@@@@", user);
       })
       .catch(error => {
         res.status(500)
