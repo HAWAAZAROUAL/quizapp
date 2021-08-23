@@ -8,7 +8,6 @@ const router  = express.Router();
 module.exports = function(db) {
 
   router.get('/:user_id', (req, res) => {
-
     db.query(`
       SELECT users.name
       FROM users
@@ -25,6 +24,7 @@ module.exports = function(db) {
           .json({ error: error.message });
       });
   });
+
   return router;
 
 };

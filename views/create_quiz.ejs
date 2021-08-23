@@ -12,55 +12,71 @@
     <!-- App.js-->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/views/create_quiz.js"></script>
-
+    <script type="text/javascript" src="/routes/createQuiz.js"></script>
+    <script type="text/javascript" src="/scripts/helper.js"></script>
 
     </head>
 
-  <body class="create-quiz">
-    <header>
-      <%- include('partials/_header') %>
-    </header>
-    <div class="create-quiz-container">
-  <h1>Create Quiz for user: <%- userName.name %><h1>
-  <h1 class="quiz-title"> Quiz Title</h1>
-  <form class="write-quiz-title" methods="POST" action="/createQuiz" id="new-quiz-title">
-    <input name="text" id="new-quiz-name" placeholder="Type a title"></input>
-
-    <h2 class="quiz-question"> Write your question here</h2>
-    <div class="write-question">
-      <input type="text" name="option" placeholder="Type your question here">
-    <!-- each div has a possible answer-->
-    <h2 class="quiz-question"> Write the answers here</h2>
-    <p> Check off the correct answer</p>
-    <form id="answers-form">
-
-      <div class="possible-answer-container">
-        <label for="answer1">Answer1</label>
-        <input type="text"></input><input id="a1" type="radio" name="is_right"></input><br>
-        <label for="answer1">Answer2</label>
-        <input type="text"></input><input id="a2" type="radio" name="is_right"></input><br>
-        <label for="answer1">Answer3</label>
-        <input type="text"></input><input id="a3" type="radio" name="is_right"></input><br>
-        <label for="answer1">Answer4</label>
-        <input type="text"></input><input id="a4" type="radio" name="is_right"></input><br>
-      </div>
-
-        <br>
-        <div class="privacy-check">
-          <input id="private-check" type="radio" name="is_private" value="true" checked="checked">Private Quiz</input>
-          <input id="public-check" type="radio" name="is_private" value="false">Public Quiz</input>
-        </div>
 
 
-        <br>
-        <div class="creating-buttons">
-        <button class="add-question" type="submit"> Add a new question</button>
+    <body class="create-quiz">
+      <header>
+        <%- include('partials/_header') %>
+      </header>
 
-        <br>
-        <button type="submit">Create Quiz</button>
+      <h1>Create Quiz for user: <%- userName.name %><h1>
 
-    </div>
-    </form>
-    </form>
+        <h1 class="quiz-title"> Quiz Title</h1>
+
+        <form class="write-quiz-title" methods="POST" action="/create/1" id="new-quiz-title">
+          <input name="text" id="new-quiz-name" placeholder="Type a title"></input>
+
+          <form id="question-answer-form">
+
+            <h2 class="quiz-question"> Write your question here</h2>
+
+            <div class="write-question">
+              <input type="text" name="option" placeholder="Type your question here"></div>
+
+              <!-- each div has a possible answer-->
+              <h2 class="quiz-question"> Write the answers here</h2>
+              <p> Check off the correct answer</p>
+
+              <form id="answers-form">
+                <div class="possible-answer-container">
+                  <label for="answer1">Answer1</label>
+                  <input type="text"></input><input id="a1" type="radio" name="is_right"></input><br>
+                  <label for="answer1">Answer2</label>
+                  <input type="text"></input><input id="a2" type="radio" name="is_right"></input><br>
+                  <label for="answer1">Answer3</label>
+                  <input type="text"></input><input id="a3" type="radio" name="is_right"></input><br>
+                  <label for="answer1">Answer4</label>
+                  <input type="text"></input><input id="a4" type="radio" name="is_right"></input><br>
+                </div>
+              </form>
+
+
+
+              <div class="create-quiz-container"></div>
+                <br>
+                <div class="privacy-check">
+                  <input id="private-check" type="radio" name="is_private" value="true" checked="checked">Private Quiz</input>
+                  <input id="public-check" type="radio" name="is_private" value="false">Public Quiz</input>
+                </div>
+
+
+                  <br>
+                  <div class="creating-buttons">
+                  <button id="add-question" type="submit"> Add a new question</button>
+
+                  <br>
+                  <button id="Submit-Create" type="submit">Create Quiz</button>
+                  </div>
+
+          </form>
+        </form>
+
     </body>
+
+
+</html>

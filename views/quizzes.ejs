@@ -33,34 +33,20 @@
       <a href="#" class="w3-bar-item w3-button">Question 3</a>
     </div>
 
-
-    <div style="margin-right:25%">
-    ... page content ...
-    </div>
-
-    <div>
-      <p>Quiz Question: <%- quizQuestion %></p>
-    </div>
-    <br>
-
-    <% for (let quiz of quizData){%>
-
-
-    <div class="quiz_content">
+    <% for (let i=0;i<quizData.length;i=i+4){%>
+      <div class="quiz_content">
+      <div> <%- quizData[i].questiontitle %></div>
+      <% for (let j=0;j<4;j++){%>
+      <div>
+      <p>Quiz Answers: <%- quizData[j].answer %></p>
+      <input id="checkAnswer" type="checkbox"></input>
+      </div>
+      <%}%>
+      </div>
+      <%}%>
+      <div class="quiz_sidebar">
 
 
-        <div>
-          <p>Quiz Answers: <%- quiz.answer %></p>
-          <input id="checkAnswer" type="checkbox"></input>
-        </div>
-
-    </div>
-    <%}%>
-
-    <div class="quiz_sidebar">
-
-
-  </body>
-</html>
-
+      </body>
+      </html>
 
