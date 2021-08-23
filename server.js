@@ -39,20 +39,22 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
-const widgetsRoutes = require("./routes/widgets");
-const createQuiz = require("./routes/createQuiz");
-const quizRoutes = require("./routes/quiz");
-const myQuizzes = require("./routes/myQuizzes");
+const usersRoutes     = require("./routes/users");
+const widgetsRoutes   = require("./routes/widgets");
+const createQuiz      = require("./routes/createQuiz");
+const quizRoutes      = require("./routes/quiz");
+const myQuizzes       = require("./routes/myQuizzes");
+const myResults       = require("./routes/results");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
+app.use("/api/users",   usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
-app.use("/create", createQuiz(db));
-app.use("/quiz", quizRoutes(db));
-app.use("/myquiz", myQuizzes(db));
+app.use("/create",      createQuiz(db));
+app.use("/quiz",        quizRoutes(db));
+app.use("/myquiz",      myQuizzes(db));
+app.use("/results",     myResults(db));
 
 
 

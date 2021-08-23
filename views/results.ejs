@@ -14,16 +14,18 @@
   </head>
 
   <body>
+
     <header>
       <%- include('partials/_header') %>
     </header>
 
-<h1> Your results</h1>
-<p>Quiz title: Cats quiz</p>
-<br>
-<p> Your Score: 3/10 for Attempt #1</p>
-<br>
-<p> Share your results for this attempt: httpsldnfjlhsbvhsh.com</p>
+  <h1>Result for: Alice</h1>
+
+  <p>Quiz title: Cats quiz</p>
+  <br>
+  <p>Your Score: (results.score)/count(questions.question) for Attempt #1</p>
+  <br>
+  <p>Share your results for this attempt: http://localhost:8080/results/:user_id</p>
 
   </body>
 </html>

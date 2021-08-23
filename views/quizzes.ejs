@@ -23,7 +23,7 @@
     <div class="w3-sidebar w3-bar-block" style="width:25%;right:0">
       <h5 class="w3-bar-item">Menu</h5>
 
-      <h1>testestest<%- userId %></h1>
+      <h1>testestest</h1>
 
       <br>
       <a href="#" class="w3-bar-item w3-button">Question 1</a>
@@ -37,35 +37,22 @@
     <div style="margin-right:25%">
     ... page content ...
     </div>
+
+    <% for (let quiz of quizData){%>
+
     <div class="quiz_content">
-      <div>
         <div>
-          <% questionTitle %>
+          <p>Quiz Question: <%- quiz.question %></p>
         </div>
-        <div><% questionId %></div>
-        <% answerId %>
-          <div>
-            <input type="radio" id="question" name="question" value="<% answerId %>">
-            <label>
-              <% answerId %>
-            </label>
-          </div>
-
-
-      </div>
-      <div class="quiz_sidebar">
-        <table>
-
-            <tr><td><% questionId %></td></tr>
-
-        </table>
-      </div>
+        <div>
+          <p>Quiz Answers: <%- quiz.answer %></p>
+        </div>
     </div>
-
-    </body>
-    </html>
-
+    <%}%>
+    <div class="quiz_sidebar">
 
 
+  </body>
+</html>
 
 

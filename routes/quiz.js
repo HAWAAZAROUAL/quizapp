@@ -10,7 +10,7 @@ module.exports = function(db) {
 
   router.get("/:quizid", (req, res) => {
     db.query(`
-    SELECT questions.id, quiz_id, quizzes.title, answers.id, questions.question, answers.answer, answers.is_right,questions.question
+    SELECT questions.id as questionid, quiz_id as quizid, quizzes.title, answers.id as answerid, questions.question, answers.answer, answers.is_right,questions.question
     FROM questions
     JOIN quizzes ON quizzes.id= questions.quiz_id
     JOIN answers  ON answers.question_id = questions.id
@@ -22,23 +22,15 @@ module.exports = function(db) {
     )
       .then((data) => {
         const quiz = data.rows;
-        console.log("@@@@@@@@@@", req.params.quizid)
-        for (const obj of quiz)
-        console.log('----------', obj, `\n objID = ${obj.id} \n objTITLE = ${obj.title}`);
+
         let templateVars = {
-          userId: req.params.user_id, // not working
-          questionId: quiz.question_id, // not working
-          questionTitle: quiz.question, // not working
-          answerId: quiz.answer_id, // not working
-          quizId: req.params.quizid
+          quizData: quiz
         };
+        console.log('@@@@@@@@@@@@@@@@@@@', templateVars);
         res.render("quizzes", templateVars);
       })
       .catch((err) => {
-
-
         res.status(500).json({ error: err.message });
-
       });
   });
 
@@ -50,7 +42,3 @@ module.exports = function(db) {
 
   return router;
 };
-
-// sidebar: all questions based on quizID
-// When a person presses start, it should show question title, all questions and their answers on one page. quizid, questionid, answerid, ?userid?
-

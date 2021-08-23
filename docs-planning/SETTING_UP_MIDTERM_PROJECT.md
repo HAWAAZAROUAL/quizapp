@@ -147,8 +147,8 @@ app.get('/login/:id', (req, res) => {
 EJS files
 - Create-quiz -------------------DONE/Dynamic
 - My-quizzes --------------------DONE/Dynamic
-- Homepage- login
-- Homepage- Public quizzes
+- Homepage- login ---------------DONE
+- Homepage- Public quizzes ------DONE/Dynamic
 - Quiz-page
 - Result page
 
