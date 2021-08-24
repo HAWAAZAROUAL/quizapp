@@ -59,9 +59,7 @@
 
 
 
-    <% for (const user of quizData) {%>
-    <form method="post" action="results/<%- user.user_id %>/<%- user.quiz_id %>">
-    <%}%>
+    <form method="post" action="results/<%- quizData[] %>/<%- quizData[0].quiz_id %>">
       <button class="submit-my-quiz" type="submit">Submit Quiz!</button>
     </form>
 
