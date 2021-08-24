@@ -69,8 +69,9 @@ app.get("/", (req, res) => {
   WHERE quizzes.is_private = false;
   `)
     .then(user => {
-      let templateVars = { userData: user.rows, userId: user.rows[0].id };
+      let templateVars = { userData: user.rows, userId: user.rows[0].userid };
       res.render("index", templateVars);
+      console.log(user.rows);
     })
     .catch(err => {
       res

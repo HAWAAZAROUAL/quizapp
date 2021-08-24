@@ -32,8 +32,11 @@
         <button class="logo" type="button"><a href="/">QUIZ WIZ</a></button>
 
           <div class="nav-header">
+
             <a class="create-quiz" href="/create/<%- userId %>">Create a Quiz</a>
-            <a class="my-quizzes" href="/myquiz<%- userId %>">My Quizzes</a>
+            <a class="my-quizzes" href="/myquiz/<%- userId %>">My Quizzes</a>
+
+
           </div>
 
           <button type = "submit" class="btn btn-dark btn-sm">Log out</button>
@@ -55,7 +58,10 @@
         <p class="url-text">Created By: <%- quiz.name %></p>
 
         <img class="Quiz-profile-image" src="https://i.guim.co.uk/img/media/7a633730f5f90db3c12f6efc954a2d5b475c3d4a/0_138_5544_3327/master/5544.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=6d246ca192c6f0c8cf3bdc40f8a43b63" width="100" height="100">
-        <button type="submit">Start!</button>
+
+        <form method="get" action="quiz/<%-quiz.quizid%>">
+        <button class="home-start-quiz" type="submit">Start!</button>
+        </form>
 
       </div>
       <%}%>

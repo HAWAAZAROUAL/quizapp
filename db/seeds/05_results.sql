@@ -17,3 +17,13 @@ INSERT INTO results(user_id, quiz_id, score) VALUES(2, 1, 0);
 INSERT INTO results(user_id, quiz_id, score) VALUES(2, 2, 10);
 INSERT INTO results(user_id, quiz_id, score) VALUES(2, 2, 5);
 INSERT INTO results(user_id, quiz_id, score) VALUES(2, 2, 0);
+
+-- AMY TOOK QUIZ # 1 THREE TIMES
+INSERT INTO results(user_id, quiz_id, score) VALUES(3, 1, 10);
+INSERT INTO results(user_id, quiz_id, score) VALUES(3, 1, 5);
+INSERT INTO results(user_id, quiz_id, score) VALUES(3, 1, 0);
+
+-- AMY TOOK QUIZ # 2 THREE TIMES
+INSERT INTO results(user_id, quiz_id, score) VALUES(3, 2, 10);
+INSERT INTO results(user_id, quiz_id, score) VALUES(3, 2, 5);
+INSERT INTO results(user_id, quiz_id, score) VALUES(3, 2, 0);

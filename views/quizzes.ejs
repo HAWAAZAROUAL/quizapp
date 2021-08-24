@@ -40,8 +40,10 @@
 
 
     <br>
-    <div> <h1><%- quizTitle %></h1></div><br>
+    <div> <h1><%- quizData[0].title %></h1></div><br>
+
     <% for (let i=0;i<quizData.length;i=i+4){%>
+
 
     <div class="quiz_content">
       <div><h3> <%- quizData[i].question %></h3></div>
@@ -55,6 +57,13 @@
     <%}%>
     <div class="quiz_sidebar">
 
+
+
+    <% for (const user of quizData) {%>
+    <form method="post" action="results/<%- user.user_id %>/<%- user.quiz_id %>">
+    <%}%>
+      <button class="submit-my-quiz" type="submit">Submit Quiz!</button>
+    </form>
 
   </body>
 </html>
