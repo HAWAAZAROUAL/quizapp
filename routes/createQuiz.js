@@ -25,6 +25,26 @@ module.exports = function(db) {
       });
   });
 
+  // router.get("/:user_id", (req, res) => {
+  //   db.query(
+  //     `
+  //     SELECT users.name, users.id
+  //     FROM users
+  //     WHERE users.id = $1;
+  //   `,
+  //     [req.params.user_id]
+  //   )
+  //     .then((user) => {
+  //       let templateVars = { userName: user.rows[0], userId: user.rows[0].id };
+  //       res.render("create_quiz", templateVars);
+
+  //       console.log("###############", user.rows[0].name);
+  //     })
+  //     .catch((error) => {
+  //       res.status(500).json({ error: error.message });
+  //     });
+  // });
+
 
 
 
@@ -57,8 +77,8 @@ module.exports = function(db) {
       is_right = true;
     }
 
-    const sql1 = `INSERT INTO quizzes(user_id, title, is_private) VALUES ($1,$2,$3}) returning *;`;
-    const sql2 = `INSERT INTO questions(quiz_id, question) VALUES(sql1,$4) returning *;`;
+    const sql1 = `INSERT INTO quizzes(user_id, title, is_private) VALUES ($1,$2,$3}) RETURNING *;`;
+    const sql2 = `INSERT INTO questions(quiz_id, question) VALUES(sql1,$4) RETURNING *;`;
     const sql3 = `SELECT id as questionid
                  FROM questions
                  ORDER BY questionid DESC

@@ -61,7 +61,6 @@ app.use("/results",     myResults(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-
 app.get("/", (req, res) => {
   db.query(`
   SELECT quizzes.id as quizid, quizzes.title, quizzes.is_private, users.id as userid, users.name
@@ -70,7 +69,7 @@ app.get("/", (req, res) => {
   WHERE quizzes.is_private = false;
   `)
     .then(user => {
-      let templateVars = { userData: user.rows };
+      let templateVars = { userData: user.rows, userId: user.rows[0].id };
       res.render("index", templateVars);
     })
     .catch(err => {

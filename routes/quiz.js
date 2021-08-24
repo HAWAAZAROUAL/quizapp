@@ -10,22 +10,23 @@ module.exports = function(db) {
 
   router.get("/:quizid", (req, res) => {
     db.query(`
-    SELECT questions.id as questionid, quiz_id as quizid, quizzes.title, answers.id as answerid, questions.question, answers.answer, answers.is_right,questions.question
+    SELECT questions.id as questionid, quiz_id as quizid, quizzes.title, answers.id as answerid, answers.answer, answers.is_right,questions.question, quizzes.id
     FROM questions
     JOIN quizzes ON quizzes.id= questions.quiz_id
     JOIN answers  ON answers.question_id = questions.id
-    WHERE quiz_id = $1
-    GROUP BY quiz_id, questions.id, quizzes.title, answers.id, questions.question, answers.answer
+    WHERE questions.quiz_id = $1
+
     ORDER BY questions.id;
-    `,
-    [req.params.quizid]
-    )
+    `, [req.params.quizid])
+
       .then((data) => {
-        const quiz = data.rows;
+        let quiz = data.rows;
 
         let templateVars = {
           quizData: quiz,
           quizQuestion: data.rows[0].question,
+          userId: data.rows[0].id,
+          quizTitle: data.rows[0].title
         };
 
         console.log('@@@@@@@@@@@@@@@@@@@', data.rows);
@@ -60,3 +61,8 @@ module.exports = function(db) {
 //         .json({ error: error.message });
 //     });
 // });
+
+
+
+// for the query above
+// GROUP BY quiz_id, questions.id, quizzes.title, answers.id, questions.question, answers.answer

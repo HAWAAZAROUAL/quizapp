@@ -16,37 +16,45 @@
 
   <body>
     <header>
-      <%- include('partials/_header') %>
+      <nav>
+        <!-- logo will be a home button -->
+        <button class="logo" type="button"><a href="/">QUIZ WIZ</a></button>
+
+          <div class="nav-header">
+            <a class="create-quiz" href="/create/<%- userId %>">Create a Quiz</a>
+            <a class="my-quizzes" href="/myquiz/<%- userId %>">My Quizzes</a>
+          </div>
+
+          <button type = "submit" class="btn btn-dark btn-sm">Log out</button>
+
+      </nav>
     </header>
     <!-- general quiz page layout -->
 
     <div class="w3-sidebar w3-bar-block" style="width:25%;right:0">
       <h5 class="w3-bar-item">Menu</h5>
 
-      <h1>testestest</h1>
+      <br>
 
-      <br>
-      <a href="#" class="w3-bar-item w3-button">Quiz<%- quizData.quizid %></a>
-      <br>
-      <a href="#" class="w3-bar-item w3-button">Question 2</a>
-      <br>
-      <a href="#" class="w3-bar-item w3-button">Question 3</a>
-    </div>
+  </div>
 
+
+    <br>
+    <div> <h1><%- quizTitle %></h1></div><br>
     <% for (let i=0;i<quizData.length;i=i+4){%>
-      <div class="quiz_content">
-      <div> <%- quizData[i].questiontitle %></div>
-      <% for (let j=0;j<4;j++){%>
-      <div>
-      <p>Quiz Answers: <%- quizData[j].answer %></p>
-      <input id="checkAnswer" type="checkbox"></input>
-      </div>
-      <%}%>
-      </div>
-      <%}%>
-      <div class="quiz_sidebar">
+
+    <div class="quiz_content">
+      <div><h3> <%- quizData[i].question %></h3></div>
+     <% for (let j=0;j<4;j++){%>
+        <div>
+          <p>Quiz Answers: <%- quizData[j].answer %></p>
+          <input id="checkAnswer" type="checkbox"></input>
+        </div>
+        <%}%>
+    </div>
+    <%}%>
+    <div class="quiz_sidebar">
 
 
-      </body>
-      </html>
-
+  </body>
+</html>
