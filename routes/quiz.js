@@ -44,3 +44,19 @@ module.exports = function(db) {
 
   return router;
 };
+
+// router.post("/:quiz_id/questions", (req, res) => {
+//   db.query(`
+//     INSERT INTO questions (quiz_id, question)
+//     VALUES ($1, $2) RETURNING * ;
+//   `, [req.params.user_id, req.body.question])
+
+//     .then(user => {
+//       const userId = user.rows[0].id;
+//       res.redirect(`/myquiz/:${userId}`);
+//     })
+//     .catch(error => {
+//       res.status(500)
+//         .json({ error: error.message });
+//     });
+// });

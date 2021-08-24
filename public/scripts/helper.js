@@ -8,12 +8,33 @@
 
 // PUBLIC/PRIVATE BUTTONS (router.post),
 // IS_RIGHT SELECTION (router.post)
-// DELETE BUTTON: ON MYQUIZZES PAGE (router.post),
+
 // START QUIZ BUTTON (router.post), ON THE HOMEPAGE FOR PUBLIC, AND ON MYQUIZZES,
-
-
+// $('.start-quiz').on("click", function() {
+//   event.preventDefault();
 
 // ANSWERS BUTTON: FOR EACH QUESTION WHEN A PERSON STARTS THE QUIZ ,
+// make a fxn where if the radiobutton is clicked- it evaluates to true or false depending.
+
+//  function () => {
+//   if ("is_right".on("click"is_right) {
+
+//   }
+
+//  };
+// DELETE BUTTON: ON MYQUIZZES PAGE- DELETE FROM DATABASE,
+
+// $(".delete-my-quiz").on("click", function() {
+
+//   db.query(`
+//   DELETE FROM quizzes WHERE quizzes.id=$1
+//   `, []
+// });
+// app.post("/myquiz/:id/delete", (req, res) => {
+//   delete data.rows[req.params.quiz_id];
+//   res.redirect(`/myquiz/${req.session.user_id}`);
+// });
+
 
 
 
@@ -47,12 +68,8 @@ $(document).ready(function() {
     $('.create-quiz-container').append($newQuestion);
     console.log("HELLO WORRRRLD");
   });
+
+
+
+
 });
-
-
-
-
-
-
-
-

@@ -7,12 +7,6 @@ const router  = express.Router();
 
 module.exports = function(db) {
 
-  // // MyQuiz  GET localhost:8080/myquiz/:id
-  // router.get('/:id', (req, res) =>{
-  //   const templateVars = {userId: req.params.user_id };
-  //   res.render("my_quizzes", templateVars);
-  // });
-
   router.get('/:id', (req, res) => {
     db.query(`
     SELECT quizzes.id as quizid, quizzes.title, quizzes.is_private, users.id as userid, users.name
@@ -21,10 +15,10 @@ module.exports = function(db) {
     WHERE users.id = $1;
     `, [req.params.id])
       .then(user => {
-        let templateVars = {userData: user.rows};
+        let templateVars = {userData: user.rows, userId: req.params.id};
         res.render("my_quizzes", templateVars);
 
-        console.log("@@@@@@@@@@@@", user);
+        console.log("@@@@@@@@@@@@", templateVars);
       })
       .catch(error => {
         res.status(500)
@@ -33,8 +27,23 @@ module.exports = function(db) {
   });
 
 
+  // delete button
+  router.post('/:id/:quiz_id', (req, res) => {
+    console.log('#################');
+    db.query(`
+      DELETE FROM quizzes
+      WHERE quizzes.id=$1
+      `, [req.params.quiz_id])
+      .then(data => {
+        const userId = req.params.id;
+        res.redirect(`/myquiz/${userId}`);
+
+      })
+      .catch(error => {
+        res.status(500)
+          .json({ error: error.message });
+      });
+  });
   return router;
+
 };
-
-
-
