@@ -160,3 +160,17 @@ EJS files
 ## Functions to make
 - createQuiz : this will take the input from the question box, and answers inputted
 
+## CSS
+- Font style
+  - Header
+  - Title (headings h1-h6)
+  - Text
+  - buttons
+
+- Font color
+- Font size
+- Background color (navbar)
+- Background color (body)
+- Submit button
+- Images for the quizzes (we need 9 (database) + 3 (new quizzes))
+- Icons: fontawesome

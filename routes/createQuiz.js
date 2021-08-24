@@ -35,19 +35,19 @@ module.exports = function(db) {
     const answer2      = req.body["answer2"];
     const answer3      = req.body["answer3"];
     const answer4      = req.body["answer4"];
-    const is_private   = req.body["is_private"];
-    const is_right    = req.body["is_right"];
+    let  isPrivate   = req.body["is_private"];
+    let isRight    = req.body["is_right"];
 
     //IF radio checked, is_private
-    if (is_private) {
-      is_private = true;
+    if (isPrivate) {
+      isPrivate = true;
     }
     //IF radio checked, is_right (correct answer)
-    if (is_right) {
-      is_right = true;
+    if (isRight) {
+      isRight = true;
     }
 
-    db.query(`INSERT INTO quizzes( user_id ,title, is_private) VALUES ($1,$2,$3) returning id;`,[userId, quizName,is_private])
+    db.query(`INSERT INTO quizzes( user_id ,title, is_private) VALUES ($1,$2,$3) returning id;`,[userId, quizName,isPrivate])
       .then(id=>{
         db.query(`INSERT INTO questions(quiz_id,question) VALUES(id,$1) returning id;`,[id,questionName])
           .then(id=>{
@@ -55,19 +55,20 @@ module.exports = function(db) {
                    VALUES(id,$1,$2)
                    VALUES(id,$3,$4)
                    VALUES(id,$5,$6)
-                   VALUES(id,$7,$8) returning *;`,[answer1,is_right,answer2,is_right,answer3,is_right,answer4,is_right])
+                   VALUES(id,$7,$8) returning *;`,[answer1,isRight,answer2,isRight,answer3,isRight,answer4,isRight])
               .then(data=>{
                 console.log(data.row[0]);
 
               })
               .catch((err) => err.message);
           })
-      });
-
-
-  });
+          .catch((err) => err.message);
+      })
+  })
   return router;
 };
+
+
 
 // router.get("/:user_id", (req, res) => {
 //   db.query(

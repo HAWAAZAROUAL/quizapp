@@ -27,7 +27,7 @@ module.exports = function(db) {
   });
 
   // START button http://localhost:8080/quiz/2
-              // myquiz/2/2
+// myquiz/2/2
   router.post('/:id/:quiz_id', (req, res) => {
     const quizId = req.params.quiz_id;
     const userId = req.params.id;

@@ -43,6 +43,8 @@ $(document).ready(function() {
   // ADD QUESTION
   $("#add-question").on("click", function(event) {
     event.preventDefault();
+    const $createquiz = $('#New_question_container');
+    $createquiz.empty();
 
     let $newQuestion = `<h2 class="quiz-question"> Write your question here</h2>
     <div class="write-question">
@@ -65,7 +67,7 @@ $(document).ready(function() {
       </div>
       <div class="create-quiz-container"></div>
       </form>`;
-    $('.create-quiz-container').append($newQuestion);
+    $('#create-quiz-container').append($newQuestion);
 
     console.log("HELLO WORRRRLD");
   });

@@ -12,6 +12,11 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/routes/quiz.js"></script>
 
+    <!-- GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Cinzel&family=Cinzel+Decorative&family=Monoton&family=Raleway+Dots&family=Suranna&display=swap" rel="stylesheet">
+
   </head>
 
   <body>
@@ -31,12 +36,9 @@
     </header>
     <!-- general quiz page layout -->
 
-    <div class="w3-sidebar w3-bar-block" style="width:25%;right:0">
-      <h5 class="w3-bar-item">Menu</h5>
 
-      <br>
 
-  </div>
+    </div>
 
 
     <br>
@@ -59,7 +61,7 @@
 
 
 
-    <form method="post" action="results/<%- quizData[] %>/<%- quizData[0].quiz_id %>">
+    <form method="post" action="results/<%- quizData[0] %>/<%- quizData[0].quiz_id %>">
       <button class="submit-my-quiz" type="submit">Submit Quiz!</button>
     </form>
 
