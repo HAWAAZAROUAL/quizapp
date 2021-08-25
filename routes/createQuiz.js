@@ -18,7 +18,7 @@ module.exports = function(db) {
         let templateVars = { userName: user.rows[0], userId: user.rows[0].id };
         res.render("create_quiz", templateVars);
 
-        console.log("###############", user.rows[0].name);
+        // console.log("###############", user.rows[0].name);
       })
       .catch((error) => {
         res.status(500).json({ error: error.message });
@@ -27,7 +27,7 @@ module.exports = function(db) {
 
   router.post('/:user_id', (req, res) => {
     const userId = req.params.user_id;
-    console.log('REQ DOT BODYYYYYY: ', req.body);
+    // console.log('REQ DOT BODYYYYYY: ', req.body);
 
     const quizName     = req.body["quizName"];
     const questionName = req.body["questionName"];

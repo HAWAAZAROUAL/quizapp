@@ -62,7 +62,10 @@
 
 <!-- *** in CSS make sure to set to float:left, width:33% ***-->
     <div id="home-fullscreen">
-      <p class="welcome-message">WELCOME TO QUIZWIZ!</p>
+      <div class="welcome-message">
+        <p class="">SCROLL DOWN TO CHECK OUT SOME PUBLIC QUIZZES</p>
+        <button class="welcome-button"><a  id="createlink" class="createlink" href="/create/<%- userId[0].userid %>">CREATE NOW</a></button>
+      </div>
     </div>
 
 
@@ -77,16 +80,18 @@
           <div class="home-my-quizzes">
             <h2 class="my-quiz-title"></h2>
             <h3><%- quiz.title %></h3>
-            <p class="url-text">localhost:8080/myquiz/<%- quiz.userid %>/<%- quiz.quizid %></p>
             <p class="url-text">Created By: <%- quiz.name %></p>
 
-              <form method="get" action="quiz/<%-quiz.quizid%>">
-              <button class="home-start-quiz" type="submit">Start!</button>
-              </form>
+            <form method="get" action="quiz/<%-quiz.quizid%>">
+              <button class="home-start-quiz" type="submit">Try It!</button>
+            </form>
 
+            <br>
+            <p class="url-text">Share: localhost:8080/myquiz/<%- quiz.userid %>/<%- quiz.quizid %></p>
           </div>
         </div>
         <%}%>
+
       </div>
     </div>
 

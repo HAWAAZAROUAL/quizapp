@@ -61,33 +61,46 @@ module.exports = function(db) {
       });
 
   });
+  return router;
 
+};
 
-  // quiz./results/1/1
-  router.post("/results/:user_id/:quiz_id", (req, res) => {
+// quiz./results/1/1
+// router.post("/results/:user_id/:quiz_id", (req, res) => {
 
-    // let checkscore = `
-    // SELECT users.id as userId, quizzes.id as quiz, count(answers.is_right) as score
-    // FROM users
-    // JOIN answers ON users.id = user_id;
-    // WHERE users.id = 1 AND quizzes.id = 1;`;
+// let checkscore = `
+// SELECT users.id as userId, quizzes.id as quiz, count(answers.is_right) as score
+// FROM users
+// JOIN answers ON users.id = user_id;
+// WHERE users.id = 1 AND quizzes.id = 1;`;
 
-    // let score = 0;
-    // if (is_right) {
-    //   score++;
-    //   return score;
-    // }
-    // console.log(score);
+// let score = 0;
+// if (is_right) {
+//   score++;
+//   return score;
+// }
+// console.log(score);
+// let checkScore = `
+// SELECT count(answers.is_right) as rightanswer, users.id as userid
+// FROM users
+// JOIN quizzes ON users.id = quizzes.user_id
+// JOIN questions ON quizzes.id = questions.quiz_id
+// JOIN answers ON questions.id = answers.question_id
+// WHERE answers.is_right = true AND users.id = 1 AND quizzes.id = 1
+// GROUP BY users.id;
+// `;
 
-    let firstString = `INSERT INTO results (user_id, quiz_id, score) VALUES ($1, $2, $3) RETURNING *; `;
+// score = count(is_right) AND quiz.id
 
-    db.query(firstString, [req.params.user_id, req.params.quiz_id, 100]) // IF I CAN GET THE SCORE SOMEHOW
-      .then((data) => {
-        console.log("data:", data);
-        // res.redirect()
-      });
+//   let firstString = `INSERT INTO results (user_id, quiz_id, score) VALUES ($1, $2, $3) RETURNING *; `;
 
-  });
+//   db.query(firstString, [req.params.user_id, req.params.quiz_id, ${score}]) // IF I CAN GET THE SCORE SOMEHOW
+//     .then((data) => {
+//       console.log("data:", data);
+//       // res.redirect()
+//     });
+
+// });
 
 //   let score=0;
 // if (answers.answer = is_right) {
@@ -110,8 +123,7 @@ module.exports = function(db) {
 // INSERT INTO answers (answer, is_right) VALUES ('testestest', radiobutton)
 
 
-  return router;
-};
+
 
 
 

@@ -177,4 +177,12 @@ EJS files
 
 
 ## BUTTONNNNNNNSSSSS
-- CRE
+- CREATE QUIZ
+  - INSERT INTO TABLES: quizzes, questions, answers
+
+- RESULTS/ SUBMIT QUIZ
+SELECT users.id as userId, quizzes.id as quizId, quizzes.title as quizTitle, 
+  - INSERT INTO TABLES: results
+    - COUNT: is_right, COUNT is_right as correct (is a number)
+    ` You scored ${correct} out of ${total} question`
+    - SUM of questions as total

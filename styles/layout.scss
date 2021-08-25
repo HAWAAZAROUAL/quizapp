@@ -17,7 +17,7 @@
   // $nav-font-stack: ;
 
   // background GIF
-  $background-gif: url(https://64.media.tumblr.com/3ada40dd6c90799628435be2ca463e32/tumblr_owzhyy71gX1uzwgsuo1_400.gifv);
+  $background-gif: url(https://64.media.tumblr.com/728127882fa2fae0fee7f43f9540ac92/tumblr_p72c1hoEdT1uzwgsuo1_400.gifv);
 
   // nav header
   $header-margin: 10px;
@@ -26,8 +26,16 @@
     box-sizing: border-box;
   }
 
-  .logo:visited {
+  button {
+    margin: $header-margin;
     text-decoration: none;
+    color: black;
+  }
+
+  // this is for the <a> buttons
+  a {
+    text-decoration: none;
+    color: black;
   }
 
 
@@ -70,12 +78,12 @@
     justify-content: space-between;
     align-items: center;
     height: 100px;
-    background-color: rgba(13, 178, 207, 0.406);
+    background-color: rgba(36, 36, 35, 0.406);
     color: black;
     font-weight:20px;
     font-family: $button-font-stack;
     font-size: 25px;
-    margin: $header-margin
+    margin: 10px 10px 0px 10px;
   }
 
   // navbar
@@ -232,12 +240,12 @@
   #home-fullscreen {
     display: flex;
     justify-content: center;
-    background-image: url(https://thumbs.gfycat.com/ThirdFearfulDamselfly-size_restricted.gif);
+    background-image: url(https://thumbs.gfycat.com/BitesizedDesertedBallpython-size_restricted.gif);
     height: 80vh;
     background-size: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    margin: $header-margin;
+    margin: 0px 10px 0px 10px;
     color: white;
     font-size: 50px;
 
@@ -245,21 +253,38 @@
 
   .welcome-message {
     display: flex;
+    flex-direction: column;
     height: 400px;
     width: 700px;
-    background-color: whitesmoke;
-    color: blue;
+    color:#333333;
     align-self: center;
     padding: 10px;
-    border-radius: 25px;
     place-items: center;
     place-content: center;
+  }
+
+  .welcome-button {
+    border: 5px solid black;
+  }
+
+  .welcome-button:hover {
+    box-shadow: 3px 3px rgba($color: #807070, $alpha: 1.0);
+    animation: ripple 1.5s linear infinite;
+    transition: all 0.7s ease;
+    &:hover
+    {
+     transform: scale(1.1);
+    }
+    &:focus
+    {
+      outline:none;
+    }
   }
 
   #home-body {
     display: flex;
     flex-direction: column;
-    margin: $header-margin;
+    margin: 0px 10px 10px 10px;
     background-image: $background-gif;
     background-size: cover;
     // opacity: 0.5;
@@ -279,17 +304,16 @@
     flex-direction: column;
     place-items: center;
     place-content: center;
-    width: 345px;
+    width: 400px;
     height: 400px;
     margin: $header-margin;
     padding: 1px 10px 5px 10px;
-    border: 3px solid red;
+    border: 10px solid white;
     font-family: $text-font-stack;
-    background-color: beige;
   }
 
   .home-my-quizzes:hover {
-    box-shadow: 7px 7px red;
+    box-shadow: 7px 7px rgba($color: #807070, $alpha: 1.0);
     animation: ripple 1.5s linear infinite;
     transition: all 0.7s ease;
     &:hover
@@ -302,8 +326,9 @@
     }
   }
 
+
   .home-start-quiz:hover {
-    box-shadow: 3px 3px red;
+    box-shadow: 3px 3px rgba($color: #807070, $alpha: 1.0);
     animation: ripple 1.5s linear infinite;
     transition: all 0.7s ease;
 
@@ -319,26 +344,115 @@
 
 // -----------------------------------------------
 
-  button {
-    margin: $header-margin;
-  }
 
-  // Buttons
-  .button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 30px;
-    font-family: $button-font-stack;
+// myquiz page -----------------------------------
+
+#myquiz-body {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 10px 10px 10px;
+  background-image: $background-gif;
+  background-size: cover;
+  height: 900px;
+  // opacity: 0.5;
+}
+
+.myquiz-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  // text-align: -webkit-center;
+
+}
+
+.my-quizzes-box {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  place-content: center;
+  width: 400px;
+  height: 400px;
+  margin: $header-margin;
+  padding: 1px 10px 5px 10px;
+  border: 10px solid white;
+  font-family: $text-font-stack;
+  background-color: beige;
+}
+
+.myquiz-buttons {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.myquiz-start-quiz:hover {
+  box-shadow: 3px 3px rgba($color: #807070, $alpha: 1.0);
+  animation: ripple 1.5s linear infinite;
+  transition: all 0.7s ease;
+
+  &:hover
+  {
+   transform: scale(1.1);
   }
+  &:focus
+  {
+    outline:none;
+  }
+}
+
+.delete-my-quiz:hover {
+  box-shadow: 3px 3px rgba($color: #807070, $alpha: 1.0);
+  animation: ripple 1.5s linear infinite;
+  transition: all 0.7s ease;
+
+  &:hover
+  {
+   transform: scale(1.1);
+  }
+  &:focus
+  {
+    outline:none;
+  }
+}
+
+.my-quizzes-box:hover {
+  box-shadow: 7px 7px rgba($color: #807070, $alpha: 1.0);
+  animation: ripple 1.5s linear infinite;
+  transition: all 0.7s ease;
+  &:hover
+  {
+   transform: scale(1.01);
+  }
+  &:focus
+  {
+    outline:none;
+  }
+}
+
+// ------------------------------------------------
+
+
+
+
+  // // Buttons
+  // .button {
+  //   background-color: #4CAF50; /* Green */
+  //   border: none;
+  //   color: white;
+  //   padding: 15px 32px;
+  //   text-align: center;
+  //   text-decoration: none;
+  //   display: inline-block;
+  //   font-size: 30px;
+  //   font-family: $button-font-stack;
+  // }
 
 
 
   //qquiz.ejs
 
 
+
+  //don't delete this bracket below!
 }

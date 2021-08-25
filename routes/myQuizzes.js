@@ -18,7 +18,7 @@ module.exports = function(db) {
         let templateVars = {userData: user.rows, userId: req.params.id};
         res.render("my_quizzes", templateVars);
 
-        console.log("@@@@@@@@@@@@", templateVars);
+        console.log("@@@@@@@@@@@@", user.rows);
       })
       .catch(error => {
         res.status(500)
@@ -26,8 +26,43 @@ module.exports = function(db) {
       });
   });
 
+  router.post('/:userid', (req, res) => {
+    const userId = req.params.userid;
+    const quizName     = req.body["quizName"];
+    const questionName = req.body["questionName"];
+    const answer1      = req.body["answer1"];
+    const answer2      = req.body["answer2"];
+    const answer3      = req.body["answer3"];
+    const answer4      = req.body["answer4"];
+    let   isPrivate    = req.body["is_private"];
+    let   isRight      = req.body["is_right"];
+
+    //IF radio checked, is_private
+    if (isPrivate.checked) {
+      isPrivate = true;
+    }
+    //IF radio checked, is_right (correct answer)
+    if (isRight.checked) {
+      isRight = true;
+    }
+
+    db.query(`INSERT INTO quizzes( user_id ,title, is_private) VALUES ($1,$2,$3) returning id;`,[userId, quizName,isPrivate])
+      .then(data=>{
+        const quizId = data.rows[0].id;
+        db.query(`INSERT INTO questions(quiz_id,question) VALUES($1,$2) returning id;`,[`${quizId}`,questionName])
+          .then(data=>{
+            const questionId = data.rows[0].id;
+            console.log(questionId);
+            db.query(` INSERT INTO answers(question_id,answer,is_right)   VALUES($1,$2,$3),($4,$5,$6),($7,$8,$9),($10,$11,$12)   returning *;`,[`${questionId}`,answer1,isRight,`${questionId}`,answer2,isRight,`${questionId}`,answer3,isRight,`${questionId}`,answer4,isRight])
+              .then(data=>{
+                res.redirect(`/myquiz/${userId}`);
+              });
+          });
+      });
+  });
+
   // START button http://localhost:8080/quiz/2
-// myquiz/2/2
+  // myquiz/2/2
   router.post('/:id/:quiz_id', (req, res) => {
     const quizId = req.params.quiz_id;
     const userId = req.params.id;
