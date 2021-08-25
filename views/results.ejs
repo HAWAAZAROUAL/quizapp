@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Acme&family=Cinzel&family=Cinzel+Decorative&family=Monoton&family=Raleway+Dots&family=Suranna&display=swap" rel="stylesheet">
   </head>
 
-  <body>
+  <body class="results-body">
 
     <header>
       <nav>
@@ -34,6 +34,8 @@
       </nav>
     </header>
 
+    <div class="results-div">
+
   <h1>Result for: <%- userName.username %></h1>
 
   <br>
@@ -42,7 +44,7 @@
   <p>Total correct: <%- userName.userscore %> questions</p><br>
   <br>
   <p>Share your results for this attempt: http://localhost:8080/results/<%-userName.userid%></p>
-
+    </div>
   </body>
 </html>
 

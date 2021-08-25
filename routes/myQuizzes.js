@@ -36,7 +36,7 @@ module.exports = function(db) {
   });
 
 
-  // delete button
+  // delete button WE'RE currently at: /myquiz/1/
   router.post('/:id/:quiz_id', (req, res) => {
     console.log('#################');
     db.query(`

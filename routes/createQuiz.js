@@ -48,14 +48,16 @@ module.exports = function(db) {
     }
 
     db.query(`INSERT INTO quizzes( user_id ,title, is_private) VALUES ($1,$2,$3) returning id;`,[userId, quizName,isPrivate])
-      .then(id=>{
-        db.query(`INSERT INTO questions(quiz_id,question) VALUES(id,$1) returning id;`,[id,questionName])
-          .then(id=>{
+      .then(data=>{
+        const quizId = data.rows[0].id;
+        db.query(`INSERT INTO questions(quiz_id,question) VALUES(id,$1) returning id;`,[`${quizId}`,questionName])
+          .then(data=>{
+            const questionId = data.rows[0].id;
             db.query(` INSERT INTO answers(question_id,answer,is_right)
-                   VALUES(id,$1,$2)
-                   VALUES(id,$3,$4)
-                   VALUES(id,$5,$6)
-                   VALUES(id,$7,$8) returning *;`,[answer1,isRight,answer2,isRight,answer3,isRight,answer4,isRight])
+                   VALUES($1,$2,$3),
+                   VALUES($4,$5,$6),
+                   VALUES($7,$8,$9),
+                   VALUES($10,$11,$12) returning *;`,[`${questionId}`,answer1,isRight,`${questionId}`,answer2,isRight,`${questionId}`,answer3,isRight,`${questionId}`,answer4,isRight])
               .then(data=>{
                 console.log(data.row[0]);
 
@@ -63,8 +65,8 @@ module.exports = function(db) {
               .catch((err) => err.message);
           })
           .catch((err) => err.message);
-      })
-  })
+      });
+  });
   return router;
 };
 
