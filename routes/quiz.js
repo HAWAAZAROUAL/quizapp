@@ -4,11 +4,6 @@ const myQuizzes = require("./myQuizzes");
 const router = express.Router();
 
 module.exports = function(db) {
-  // Quiz + Questions   GET localhost:8080/quiz/:quizid
-  // router.get("/:quizid", (req, res) => {
-  //   const templateVars = { userId: req.params.user_id };
-  //   res.render("quizzes", templateVars);
-  // });
 
   //localhost:8080/quiz/:userid/:quizid
   router.get("/:userid/:quizid", (req, res) => {
@@ -22,17 +17,11 @@ module.exports = function(db) {
     `, [req.params.quizid])
 
       .then((data) => {
-        // console.log('THIS IS THE DATA: ' , data);
-
         let templateVars = {
           quizData: data.rows,
-          // quizQuestion: data.rows[0].question,
           userId: data.rows[0].id,
 
-          // quizTitle: data.rows[0].title
         };
-
-
         res.render("quizzes", templateVars);
       })
       .catch((err) => {
@@ -40,48 +29,52 @@ module.exports = function(db) {
       });
   });
 
-
-
   // Submit Quiz: We are current at: 8080/quiz/:userid/:quizid
   router.post('/:userid/:quizid', (req, res) => {
-
+    const question1Answer = req.body["checkAnswer0"];
+    const question2Answer = req.body["checkAnswer4"];
+    const question3Answer = req.body["checkAnswer8"];
+    const question4Answer = req.body["checkAnswer12"];
+    const question5Answer = req.body["checkAnswer16"];
+    const userId = req.params.userid;
+    const quizId = req.params.quizid;
+    let score = 0;
 
     db.query(`
-    Select answers.answer as allAnswers From answers where Answers.is_right = true;
+      SELECT questions.id questionId, answers.answer as rightAnswer FROM answers
+      JOIN questions ON questions.id = answers.question_id
+      JOIN quizzes ON quizzes.id = questions.quiz_id
+      WHERE is_right = true AND quizzes.id = 1;
     `)
       .then(data => {
-        let rightAnswers = data.rows[0].allAnswers;
+        if (question1Answer === data.rows[0].rightanswer) {
+          score++;
+        }
+        if (question2Answer === data.rows[1].rightanswer) {
+          score++;
+        }
+        if (question3Answer === data.rows[2].rightanswer) {
+          score++;
+        }
+        if (question4Answer === data.rows[3].rightanswer) {
+          score++;
+        }
+        if (question5Answer === data.rows[4].rightanswer) {
+          score++;
+        }
+        console.log('this is your final score', score);
+      })
+
+      .then(data => {
+        db.query(`
+          INSERT INTO results(user_id, quiz_id, score)
+          VALUES ($1, $2, $3)
+        `, [userId, quizId, score]);
+
+        res.redirect(`/results/${userId}/${quizId}`);
       });
-
   });
-  //   const score = 0;
 
-  //   document.getElementById["checkAnswer"].onclick = function() {
-  //     let checkedCorrect = document.getElementById("checkAnswer").checked = true;
-
-  //     if (checkedCorrect && // compare is_right)
-  //     score++
-
-  //   };
-
-
-  //   db.query(`
-  //     INSERT INTO results (user_id, quiz_id, score)
-  //     VALUES ($1, $2, $3)
-  //     `, [req.params.userid, req.params.quizid, `${score}` ])
-  //     .then(data => {
-  //       // const userId = data.rows[0].userid;
-  //       const quizid = req.params.quizid;
-  //       const userid = req.params.userid;
-
-  //       //result/userid/quizid
-  //       res.redirect(`result/${userid}/${quizid}`);
-  //     })
-  //     .catch(error => {
-  //       res.status(500)
-  //         .json({ error: error.message });
-  //     });
-  // });
 
 
 
@@ -90,6 +83,53 @@ module.exports = function(db) {
 
   return router;
 };
+
+// if (userAnswer === answerQ1)
+//   console.log("this is correct");
+
+// db.query(`
+// Select answers.answer as allAnswers
+// From answers
+// where answers.is_right = true;
+// `)
+//   .then(data => {
+//     let rightAnswers = data.rows[0].allAnswers;
+//   });
+//   const score = 0;
+
+//   document.getElementById["checkAnswer"].onclick = function() {
+//     let checkedCorrect = document.getElementById("checkAnswer").checked = true;
+
+//     if (checkedCorrect && // compare is_right)
+//     score++
+
+//   };
+
+
+//   db.query(`
+//     INSERT INTO results (user_id, quiz_id, score)
+//     VALUES ($1, $2, $3)
+//     `, [req.params.userid, req.params.quizid, `${score}` ])
+//     .then(data => {
+//       // const userId = data.rows[0].userid;
+//       const quizid = req.params.quizid;
+//       const userid = req.params.userid;
+
+//       //result/userid/quizid
+//       res.redirect(`result/${userid}/${quizid}`);
+//     })
+//     .catch(error => {
+//       res.status(500)
+//         .json({ error: error.message });
+//     });
+// });
+
+
+
+
+
+
+
 
 // score = count(is_right) AND quiz.id
 

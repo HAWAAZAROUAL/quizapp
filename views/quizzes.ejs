@@ -41,36 +41,35 @@
     </header>
     <!-- general quiz page layout -->
 
+    <% for (let user of quizData) {%>
+    <form method="post" action="http://localhost:8080/quiz/<%-user.user_id%>/<%-user.quiz_id%>">
+    <%}%>
 
 
-    <div class="quiz-page">
+        <div class="quiz-page">
 
 
-      <br>
-      <div> <h1><%- quizData[0].title %></h1></div><br>
+          <br>
+          <div> <h1><%- quizData[0].title %></h1></div><br>
 
-      <% for (let i=0;i<quizData.length;i=i+4){%>
+          <% for (let i=0;i<quizData.length;i=i+4){%>
 
 
-      <div class="quiz_content">
-        <div ><h1> <%- quizData[i].question %></h3></div>
-      <% for (let j=0;j<4;j++){%>
-          <div id="input-answer">
-            <input id="checkAnswer" type="radio"></input>
-            <p>Quiz Answers: <%- quizData[j].answer %></p>
+          <div class="quiz_content">
+            <div ><h1> <%- quizData[i].question %></h3></div>
+            <% for (let j=0;j<4;j++){%>
+              <div class="input-answer">
+                <input class="checkAnswer" name="checkAnswer<%-i%>" value="<%- quizData[j].answer %>" type="radio"></input>
+                <p>Quiz Answers: <%- quizData[j].answer %></p>
+              </div>
+            <%}%>
           </div>
-        <%}%>
-      </div>
-      <%}%>
+          <%}%>
 
 
-      <% for (let user of quizData) {%>
-      <form method="get" action="http://localhost:8080/results/<%-user.user_id%>/<%-user.quiz_id%>">
-      <%}%>
+      <button class="submit-my-quiz" type="submit">Submit Quiz!</button>
+    </form>
 
-
-        <button class="submit-my-quiz" type="submit">Submit Quiz!</button>
-      </form>
     </div>
 
 

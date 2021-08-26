@@ -57,6 +57,7 @@ module.exports = function(db) {
           .json({ error: error.message });
       });
   });
+
   return router;
 
 };

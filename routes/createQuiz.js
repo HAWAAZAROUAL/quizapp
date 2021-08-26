@@ -38,8 +38,6 @@ module.exports = function(db) {
     let  isPrivate     = req.body["is_private"];
     let isRight        = req.body["is_right"];
 
-
-
     //IF radio checked, is_private
     if (isPrivate) {
       isPrivate = true;
@@ -61,6 +59,7 @@ module.exports = function(db) {
           });
       });
   });
+
   return router;
 };
 

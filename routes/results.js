@@ -5,27 +5,33 @@ module.exports = function(db) {
   // localhost:8080/results/:user_id/:quiz_id
   router.get('/:user_id/:quiz_id', (req, res) => {
 
-    db.query(`
-      SELECT quizzes.title, questions.question as question, questions.id as questionid, users.name as username, results.score as userscore, users.id as userId, quizzes.id as quizid
-      FROM quizzes
-      JOIN results ON quizzes.id = results.quiz_id
-      JOIN questions ON quizzes.id = questions.quiz_id
-      JOIN users ON users.id = quizzes.user_id
-      WHERE users.id = $1;
-    `, [req.params.user_id])
-      .then(result => {
-        for (const data of result.rows) {
-          let templateVars = {
-            userData: result.rows,
-            userName: data.username,
-            userId: data.userid,
-            quizId: data.quizid,
-            quizTitle: data.title,
-            quizScore: data.userscore
-          };
-          res.render("results", templateVars);
 
-        }
+
+    db.query(`
+    SELECT users.name as username, users.id as userid, quizzes.id as quizid, quizzes.title as quiztitle, results.score as score, count(questions.id) as totalQuestions
+    FROM users
+    JOIN results ON users.id = results.user_id
+    JOIN quizzes ON users.id = quizzes.user_id
+    JOIN questions ON quizzes.id = questions.quiz_id
+    JOIN answers ON questions.id = answers.question_id
+    WHERE users.id = $1
+    GROUP BY users.name, users.id, quizzes.id, results.score, questions.id
+    HAVING quizzes.id = $2;
+    `, [req.params.user_id, req.params.quiz_id])
+      .then(result => {
+
+        let templateVars = {
+          totalData: result.rows,
+          userName: result.rows[0].username,
+          userId: result.rows[0].userid,
+          quizId: result.rows[0].quizid,
+          quizTitle: result.rows[0].quiztitle,
+          userScore: result.rows[0].score,
+          // we need totalquestions count...
+        };
+        console.log('THIS IS THE DATA: ', result.rows);
+        res.render("results", templateVars);
+
       })
       .catch(error => {
         res.status(500)
