@@ -105,6 +105,10 @@
     align-items: center;
   }
 
+  #checkAnswer {
+    transform: scale(1.5);
+    margin: 0px 15px 0px 0px;
+  }
 
   .quiz-page {
     background-image:$quiz-background;
@@ -112,6 +116,11 @@
     margin: 0px 10px 0px 10px;
   }
 
+  #input-answer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
 
     //RESULTS PAGE -----------------

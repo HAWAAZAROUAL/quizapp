@@ -31,9 +31,8 @@
 
           <div class="nav-header">
             <button class="create-quiz"><a  id="createlink" class="createlink" href="/create">Create a Quiz</a></button>
-            <!-- DELETE /<%- userId %> -->
-            <button class="my-quizzes"><a id="myquizlink" class="myquizlink" href="/myquiz">My Quizzes</a></button>
-            <!-- DELETE /<%- userId %> -->
+
+            <button class="my-quizzes"><a id="myquizlink" class="myquizlink" href="/myquiz/<%- quizData[0].user_id %>">My Quizzes</a></button>
           </div>
 
           <button type = "submit" class="btn btn-dark btn-sm">Log out</button>
@@ -54,11 +53,11 @@
 
 
       <div class="quiz_content">
-        <div ><h3> <%- quizData[i].question %></h3></div>
+        <div ><h1> <%- quizData[i].question %></h3></div>
       <% for (let j=0;j<4;j++){%>
-          <div >
+          <div id="input-answer">
+            <input id="checkAnswer" type="radio"></input>
             <p>Quiz Answers: <%- quizData[j].answer %></p>
-            <input id="checkAnswer" type="radio" ></input>
           </div>
         <%}%>
       </div>
