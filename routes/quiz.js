@@ -23,17 +23,16 @@ module.exports = function(db) {
 
       .then((data) => {
         // console.log('THIS IS THE DATA: ' , data);
-        let quiz = data.rows;
 
         let templateVars = {
-          quizData: quiz,
+          quizData: data.rows,
           // quizQuestion: data.rows[0].question,
           userId: data.rows[0].id,
-          quizId: req.params.quizid
+
           // quizTitle: data.rows[0].title
         };
 
-        // console.log('@@@@@@@@@@@@@@@@@@@', data.rows);
+        console.log('@@@@@@@@@@@@@@@@@@@', data.rows);
         res.render("quizzes", templateVars);
       })
       .catch((err) => {

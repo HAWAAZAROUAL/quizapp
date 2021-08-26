@@ -65,10 +65,10 @@
       <%}%>
 
 
+      <% for (let user of quizData) {%>
+      <form method="get" action="http://localhost:8080/results/<%-user.user_id%>/<%-user.quiz_id%>">
+      <%}%>
 
-
-
-      <form method="get" action="http://localhost:8080/results/<%-userId%>/<%-quizId%>">
 
         <button class="submit-my-quiz" type="submit">Submit Quiz!</button>
       </form>
