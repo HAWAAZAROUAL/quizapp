@@ -3,12 +3,19 @@
   <head>
     <title>My Quizzes</title>
 
+    <!-- CSS FILES -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/create_quiz.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/homepage.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/myQuizzes.css" type="text/css" />
+
+    <!--JAVSCRIPT-->
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/myQuizzes.js"></script>
 
    <!-- GOOGLE FONTS-->
    <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,11 +30,15 @@
         <button class="logo" type="button"><a href="/">QUIZ WIZ</a></button>
 
           <div class="nav-header">
-            <a class="create-quiz" href="/create/<%- userId %>">Create a Quiz</a>
-            <a class="my-quizzes" href="/myquiz/<%- userId %>">My Quizzes</a>
+
+            <button class="create-quiz"><a  id="createlink" class="createlink" href="/create">Create a Quiz</a></button>
+            <!-- DELETE /<%- userId %> -->
+            <button class="my-quizzes"><a id="myquizlink" class="myquizlink" href="/myquiz">My Quizzes</a></button>
+            <!-- DELETE /<%- userId %> -->
+
           </div>
 
-          <button type = "submit" class="btn btn-dark btn-sm">Log out</button>
+          <button type = "submit" class="logout">Log out</button>
 
       </nav>
     </header>
@@ -45,16 +56,17 @@
 
           <h1 class="my-quiz-title"><%- quiz.title %></h1>
 
-          <p class="url-text">localhost:8080/myquiz/<%- quiz.userid %>/<%- quiz.quizid %></p>
+          <p class="url-text">localhost:8080/quiz/<%-userId%>/<%-quiz.quizid%></p>
 
 
 
           <div class="myquiz-buttons">
-            <form method="post" action="<%- userId %>/<%- quiz.quizid %>">
+            <form method="get" action="http://localhost:8080/quiz/<%-userId%>/<%-quiz.quizid%>">
+
             <button class="myquiz-start-quiz" type="submit">Start!</button>
             </form>
 
-            <form method="post" action="<%- userId %>/<%- quiz.quizid %>">
+            <form method="post" action="/myquiz">
               <button class="delete-my-quiz" type="submit">Delete</button>
             </form>
           </div>

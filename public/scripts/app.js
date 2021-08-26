@@ -9,6 +9,7 @@ $(() => {
   });
 });
 
+// //for create page
 // $.ajax({
 //   method: "POST",
 //   url: "/create",
@@ -18,6 +19,17 @@ $(() => {
 //     $("<div>").text(quiz.title).appendTo($("body"));
 //   }
 // });
+
+// $.ajax({
+//   url: 'http://www.yoururl.com/script.php',
+//   type: 'POST',
+//   cache: false,
+//   data: $('#form1').serialize() + '&yournewvar=yournewvalue',
+//   success: function(msg) {
+//       location.reload();
+//   }
+// });
+
 
 // $("#frtweet").submit(function (event) {
 //   event.preventDefault();

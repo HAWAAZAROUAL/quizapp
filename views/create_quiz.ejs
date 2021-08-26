@@ -8,31 +8,35 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/create_quiz.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/homepage.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/myQuizzes.css" type="text/css" />
+
 
     <!-- App.js-->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/routes/createQuiz.js"></script>
+    <script type="text/javascript" src="/routes/myQuizzes.js"></script>
     <script type="text/javascript" src="/scripts/helper.js"></script>
 
-<!-- GOOGLE FONTS-->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Acme&family=Cinzel&family=Cinzel+Decorative&family=Monoton&family=Raleway+Dots&family=Suranna&display=swap" rel="stylesheet">
+    <!-- GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Cinzel&family=Cinzel+Decorative&family=Monoton&family=Raleway+Dots&family=Suranna&display=swap" rel="stylesheet">
 
     </head>
 
+    <body>
 
-
-    <body class="create-quiz">
       <header>
         <nav>
           <!-- logo will be a home button -->
           <button class="logo" type="button"><a href="/">QUIZ WIZ</a></button>
 
             <div class="nav-header">
-              <button class="create-quiz"><a  href="/create/<%- userId %>">Create a Quiz</a></button>
-              <button class="my-quizzes"><a  href="/myquiz/<%- userId %>">My Quizzes</a></button>
+              <button class="create-quiz"><a  id="createlink" class="createlink" href="/create">Create a Quiz</a></button>
+              <button class="my-quizzes"><a id="myquizlink" class="myquizlink" href="/myquiz/<%- userId %>">My Quizzes</a></button>
             </div>
 
             <button type = "submit" class="btn btn-dark btn-sm">Log out</button>
@@ -40,58 +44,75 @@
         </nav>
       </header>
 
-      <h1 class="create-user-name">Create Quiz for user: <%- userName.name %><h1>
+    <div class="create-body">
 
-        <h1 class="quiz-title"> Quiz Title</h1>
+      <div class="createpage-body">
+        <h1 class="create-user-name" name="user_id">Create Quiz for: <%-userName%><h1>
 
-        <form id="question-answer-form" method="post" action="/myquiz/<%- userId %>">
+          <h1 class="quiz-title"> Quiz Title</h1>
 
-          <input id="new-quiz-name" name="quizName" placeholder="Type a title"></input>
 
-          <h2 class="quiz-question"> Write your question here</h2>
+          <form id="question-answer-form" method="post" action="/create">
+            <input type="hidden" name="user_id" value="<%-userId%>">
 
-          <div class="write-question">
-            <input type="text" name="questionName" placeholder="Type your question here"></div>
+            <input id="new-quiz-name" name="quizName" placeholder="Type a title"></input>
 
-            <h2 class="quiz-answer"> Write the answers here</h2>
+            <h2 class="quiz-question"> Write your question here</h2>
 
-            <p> Check off the correct answer</p>
+            <input type="text" name="questionName" placeholder="Type your question here">
 
-            <div class="possible-answer-container">
+              <h2 class="quiz-answer"> Write the answers here</h2>
 
-              <label id="answer1" for="answer1">Answer1</label>
-              <input type="text" name="answer1"></input>
-              <input id="a1" type="radio" name="is_right"></input><br>
+              <p> Check off the correct answer</p>
 
-              <label id="answer2" for="answer1">Answer2</label>
-              <input type="text" name="answer2"></input><input id="a2" type="radio" name="is_right"></input><br>
+              <div class="possible-answer-container">
 
-              <label  id="answer3" for="answer1">Answer3</label>
-              <input type="text" name="answer3"></input><input id="a3" type="radio" name="is_right"></input><br>
+                <label id="answer1" for="answer1">Answer1</label>
+                  <div class="answer-text-radio">
+                    <input class="answertext" type="text" name="answer1"></input><input id="a1" class="answer-radio" type="radio" name="is_right"></input><br>
+                  </div>
 
-              <label id="answer4" for="answer1">Answer4</label>
-              <input type="text" name="answer4"></input><input id="a4" type="radio" name="is_right"></input><br>
-            </div>
+                <label id="answer2" for="answer1">Answer2</label>
+                  <div class="answer-text-radio">
+                    <input class="answertext" type="text" name="answer2"></input><input id="a2" class="answer-radio"  type="radio" name="is_right"></input><br>
+                  </div>
 
-            <div id="create-quiz-container" class="create-quiz-container"></div>
-              <br>
-              <div class="privacy-check">
-                <input id="private-check" type="radio" name="is_private" value="true" checked="checked">Private Quiz</input>
-                <input id="public-check" type="radio" name="is_private" value="false">Public Quiz</input>
+                <label  id="answer3" for="answer1">Answer3</label>
+                  <div class="answer-text-radio">
+                    <input class="answertext" type="text" name="answer3"></input><input id="a3" class="answer-radio"  type="radio" name="is_right"></input><br>
+                  </div>
+
+                <label id="answer4" for="answer1">Answer4</label>
+                  <div class="answer-text-radio">
+                    <input class="answertext" type="text" name="answer4"></input><input id="a4" class="answer-radio"  type="radio" name="is_right"></input><br>
+                  </div>
+
               </div>
 
+              <div id="create-quiz-container" class="create-quiz-container"></div>
                 <br>
-                <div class="creating-buttons">
-                <button id="add-question" type="submit"> Add a new question</button>
-
-                <br>
-                <button id="Submit-Create" type="submit">Create Quiz</button>
+                <div class="privacy-check">
+                  <input id="private-check" type="radio" name="is_private" value="true" checked="checked">Private Quiz</input>
+                  <input id="public-check" type="radio" name="is_private" value="false">Public Quiz</input>
                 </div>
 
-        </form>
+                  <br>
+                  <div class="creating-buttons">
+                   <button id="add-question" type="submit"> Add a new question</button>
 
+                   <br>
 
-      </body>
+                   <button id="Submit-Create" type="submit">Create Quiz</button>
+
+                  </div>
+
+          </form>
+
+      </div>
+
+    </div>
+
+    </body>
 
 
 </html>

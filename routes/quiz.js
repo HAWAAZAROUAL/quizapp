@@ -1,4 +1,5 @@
 const express = require("express");
+const { Pool } = require("pg");
 const myQuizzes = require("./myQuizzes");
 const router = express.Router();
 
@@ -9,8 +10,8 @@ module.exports = function(db) {
   //   res.render("quizzes", templateVars);
   // });
 
-  //localhost:8080/quiz/:quizid
-  router.get("/:quizid", (req, res) => {
+  //localhost:8080/quiz/:userid/:quizid
+  router.get("/:userid/:quizid", (req, res) => {
     db.query(`
     SELECT users.*, quizzes.*, questions.*, answers.*
     FROM quizzes
@@ -28,10 +29,8 @@ module.exports = function(db) {
           quizData: quiz,
           // quizQuestion: data.rows[0].question,
           userId: data.rows[0].id,
+          quizId: req.params.quizid
           // quizTitle: data.rows[0].title
-          show: function(word) {
-            console.log(word);
-          }
         };
 
         // console.log('@@@@@@@@@@@@@@@@@@@', data.rows);
@@ -44,51 +43,55 @@ module.exports = function(db) {
 
 
 
-  // Submit Quiz: We are current at: 8080/quiz/:quizid
-  router.post('/:quiz_id', (req, res) => {
-    console.log('*CHECKING POST ROUTE**');
+  // Submit Quiz: We are current at: 8080/quiz/:userid/:quizid
+  router.post('/:userid/:quizid', (req, res) => {
+
+
     db.query(`
-      DELETE FROM quizzes
-      WHERE quizzes.id=$1
-      `, [req.params.quiz_id])
+    Select answers.answer as allAnswers From answers where Answers.is_right = true;
+    `)
       .then(data => {
-        const userId = req.params.id;
-        res.redirect(`/results/${userId}/${quizid}`);
-      })
-      .catch(error => {
-        res.status(500)
-          .json({ error: error.message });
+        let rightAnswers = data.rows[0].allAnswers;
+        console.log(rightAnswers);
       });
 
   });
+  //   const score = 0;
+
+  //   document.getElementById["checkAnswer"].onclick = function() {
+  //     let checkedCorrect = document.getElementById("checkAnswer").checked = true;
+
+  //     if (checkedCorrect && // compare is_right)
+  //     score++
+
+  //   };
+
+
+  //   db.query(`
+  //     INSERT INTO results (user_id, quiz_id, score)
+  //     VALUES ($1, $2, $3)
+  //     `, [req.params.userid, req.params.quizid, `${score}` ])
+  //     .then(data => {
+  //       // const userId = data.rows[0].userid;
+  //       const quizid = req.params.quizid;
+  //       const userid = req.params.userid;
+
+  //       //result/userid/quizid
+  //       res.redirect(`result/${userid}/${quizid}`);
+  //     })
+  //     .catch(error => {
+  //       res.status(500)
+  //         .json({ error: error.message });
+  //     });
+  // });
+
+
+
+
+
+
   return router;
-
 };
-
-// quiz./results/1/1
-// router.post("/results/:user_id/:quiz_id", (req, res) => {
-
-// let checkscore = `
-// SELECT users.id as userId, quizzes.id as quiz, count(answers.is_right) as score
-// FROM users
-// JOIN answers ON users.id = user_id;
-// WHERE users.id = 1 AND quizzes.id = 1;`;
-
-// let score = 0;
-// if (is_right) {
-//   score++;
-//   return score;
-// }
-// console.log(score);
-// let checkScore = `
-// SELECT count(answers.is_right) as rightanswer, users.id as userid
-// FROM users
-// JOIN quizzes ON users.id = quizzes.user_id
-// JOIN questions ON quizzes.id = questions.quiz_id
-// JOIN answers ON questions.id = answers.question_id
-// WHERE answers.is_right = true AND users.id = 1 AND quizzes.id = 1
-// GROUP BY users.id;
-// `;
 
 // score = count(is_right) AND quiz.id
 
@@ -108,35 +111,35 @@ module.exports = function(db) {
 //   return score;
 // }
 
-// //instead of the function above make a select
-// `SELECT COUNT(is_right)
-// FROM
-// JOIN
-// JOIN
-// JOIN
-// WHERE answer IS is_right`
 
-// is_right = answers (if correct)
-// answers.is_right
-// count(answers.is_right) = score
-
-// INSERT INTO answers (answer, is_right) VALUES ('testestest', radiobutton)
-
-
-
-
-
-
-
-// score = count(is_right) based on the quizzes.id
-
-
-// // adding the score- total correct.
-// let score = 0;
-//   if (is_right) {
-//   score ++;
-//   return score;
-//   }
 
 
 //make a function in req.body that filters through the right answers.
+
+// router.post('/', (req, res) => {
+
+//   let isRight = req.body["is_right"]; // Boolean T/F
+//   let score = 0;
+
+//   document.getElementById("checkAnswer").onclick = function() {
+//     let correctChecked = document.getElementById("checkAnswer").checked = true;
+
+//     if (isRight && correctChecked) { // fix this (make it a boolean)
+//       score++;
+//     }
+//   };
+//   return score;
+// });
+
+
+
+// //hawaa's attempt
+// let score = 0;
+// document.getElementById("checkAnswer").onclick = function() {
+//   let answer = document.getElementById("answer").value;
+//   if (answer = ${is_right}) {
+//     score++;
+//     console.log(score);
+//   }
+//   document.getElementById("score").innerHTML = score;
+// }

@@ -78,9 +78,30 @@ weakness: css html promise too
   Quiz    GET localhost:8080/:quizid ----------------DONE
   QuestionGET localhost:8080/:quizid/:question ------STRETCH
   Result  GET localhost:8080/:quizid/result/:id -----DONE
-  
-  
 
+
+- HOME    GET  /
+
+CREATE PAGE
+- CREATE  GET  /create
+- SUBMIT  POST /create  
+  - REDIRECT (/): use db.query 
+    - db.query INSERT
+    - .then REDIRECT (/users/:userid/quizzes)
+
+MYQUIZZES PAGE
+- MYQUIZZES   GET   /users/:userid/quizzes
+- START       GET   /users/:userid/quizzes/:quizid
+- SUBMIT      POST  /users/:userid/quizzes/:quizid
+    - db.query INSERT
+    - .then REDIRECT (/users/:userid/quizzes/:quizid/results)
+
+- move userid into body.
+/results/1/1
+/results/:quizid
+
+/create/1
+/create/
 
 
 - IF AJAX:

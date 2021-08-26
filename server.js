@@ -52,9 +52,19 @@ app.use("/api/users",   usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 app.use("/create",      createQuiz(db));
-app.use("/quiz",        quizRoutes(db));
-app.use("/myquiz",      myQuizzes(db));
-app.use("/results",     myResults(db));
+app.use("/quiz",        quizRoutes(db)); ///users/:userid/quizzes/:quizid
+app.use("/myquiz",      myQuizzes(db));  ///users/:userid/quizzes/
+app.use("/results",     myResults(db));  ///users/:userid/quizzes/:quizid/results
+
+
+// HOME:        /                               (GET)
+
+// CREATE PAGE: /create                         (GET)
+// CreateNew  : /create                         (POST)
+
+// MyQuiz PAGE: /users/:userid/quizzes          (GET)
+// startQ PAGE: /users/:userid/quizzes/:quizid  (GET)
+// SubmiQ PAGE: /users/:userid/quizzes/:quizid  (POST)
 
 
 // Home page
@@ -88,6 +98,9 @@ app.get('/login/:id', (req, res) => {
   //cookie parse
   res.redirect('/');
 });
+
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

@@ -1,0 +1,117 @@
+@media only screen and (max-width: 2000px) {
+
+  $button-font-stack: 'Suranna', serif;
+  $logo-font-stack: 'Raleway Dots', cursive;
+  $text-font-stack: 'Acme', sans-serif;
+  $background-gif: url(https://i.pinimg.com/originals/a4/64/60/a46460eef9156cf9144b95fd2375cf3e.gif);
+  $quiz-background: url(https://cutewallpaper.org/21/professional-website-background/professional-images-for-website-background-13-Ride-Now-Pte-Ltd.jpg);
+  $header-margin: 10px;
+
+  // HOME PAGE --------------------------
+  #home-fullscreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-image: $background-gif;
+    height: 80vh;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    margin: 0px 10px 0px 10px;
+    font-size: 50px;
+}
+
+  .welcome-message {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    width: 700px;
+    color: white;
+    font-size: 50px;
+    place-items: center;
+    place-content: center;
+    margin: 0px 0px 0px 20px;
+}
+
+  .welcome-button {
+    border: 5px solid white;
+    margin-right: auto;
+  }
+
+  .welcome-button:hover {
+    box-shadow: 3px 3px rgba($color: #807070, $alpha: 1.0);
+    animation: ripple 1.5s linear infinite;
+    transition: all 0.7s ease;
+    &:hover
+    {
+    transform: scale(1.1);
+    }
+    &:focus
+    {
+      outline:none;
+    }
+  }
+
+  #home-body {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px 10px 10px;
+    background-image: $quiz-background;
+    background-size: cover;
+    // opacity: 0.5;
+  }
+
+  .public-quizzes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    // text-align: -webkit-center;
+
+  }
+
+  .home-my-quizzes {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    place-content: center;
+    width: 400px;
+    height: 400px;
+    margin: $header-margin;
+    padding: 1px 10px 5px 10px;
+    border: 10px solid white;
+    font-family: $text-font-stack;
+  }
+
+  .home-my-quizzes:hover {
+    box-shadow: 7px 7px rgba($color: #807070, $alpha: 1.0);
+    animation: ripple 1.5s linear infinite;
+    transition: all 0.7s ease;
+    &:hover
+    {
+    transform: scale(1.01);
+    }
+    &:focus
+    {
+      outline:none;
+    }
+  }
+
+
+  .home-start-quiz:hover {
+    box-shadow: 3px 3px rgba($color: #807070, $alpha: 1.0);
+    animation: ripple 1.5s linear infinite;
+    transition: all 0.7s ease;
+
+    &:hover
+    {
+    transform: scale(1.1);
+    }
+    &:focus
+    {
+      outline:none;
+    }
+  }
+
+}

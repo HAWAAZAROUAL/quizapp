@@ -2,26 +2,30 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = function(db) {
-  // localhost:8080/results/:user_id
-  router.get('/:user_id', (req, res) => {
+  // localhost:8080/results/:user_id/:quiz_id
+  router.get('/:user_id/:quiz_id', (req, res) => {
 
     db.query(`
-      SELECT quizzes.title, questions.question as question, questions.id as questionid, users.name as username, results.score as userscore, users.id as userId
+      SELECT quizzes.title, questions.question as question, questions.id as questionid, users.name as username, results.score as userscore, users.id as userId, quizzes.id as quizid
       FROM quizzes
       JOIN results ON quizzes.id = results.quiz_id
       JOIN questions ON quizzes.id = questions.quiz_id
       JOIN users ON users.id = quizzes.user_id
       WHERE users.id = $1;
     `, [req.params.user_id])
-      .then(user => {
-        let templateVars = {
-          userData: user.rows,
-          userName: user.rows[0],
-          userId: user.rows[0].userid
-        };
-        res.render("results", templateVars);
+      .then(result => {
+        for (const data of result.rows) {
+          let templateVars = {
+            userData: result.rows,
+            userName: data.username,
+            userId: data.userid,
+            quizId: data.quizid,
+            quizTitle: data.title,
+            quizScore: data.userscore
+          };
+          res.render("results", templateVars);
 
-        console.log("###############", user.rows);
+        }
       })
       .catch(error => {
         res.status(500)
@@ -35,21 +39,7 @@ module.exports = function(db) {
 
 
 
-// router.post("/:quiz_id/questions", (req, res) => {
-//   db.query(`
-//     INSERT INTO questions (quiz_id, question)
-//     VALUES ($1, $2) RETURNING * ;
-//   `, [req.params.user_id, req.body.question])
 
-//     .then(user => {
-//       const userId = user.rows[0].id;
-//       res.redirect(`/myquiz/:${userId}`);
-//     })
-//     .catch(error => {
-//       res.status(500)
-//         .json({ error: error.message });
-//     });
-// });
 
 
 

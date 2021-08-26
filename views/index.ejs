@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/homepage.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/create_quiz.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/myQuizzes.css" type="text/css" />
 
     <!-- Javascript-->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -42,7 +45,7 @@
     </script>
   </head>
 
-  <body">
+  <body>
     <header>
       <nav>
         <!-- logo will be a home button -->
@@ -50,11 +53,11 @@
 
           <div class="nav-header">
 
-           <button class="create-quiz"><a  id="createlink" class="createlink" href="/create/<%- userId[0].userid %>">Create a Quiz</a></button>
+           <button class="create-quiz"><a  id="createlink" class="createlink" href="/create">Create a Quiz</a></button>
 
-            <button class="my-quizzes"><a id="myquizlink" class="myquizlink" href="/myquiz/<%- userId[0].userid %>">My Quizzes</a></button>
+            <button class="my-quizzes"><a id="myquizlink" class="myquizlink" href="/myquiz/<%-userId[0].userid%>">My Quizzes</a></button>
           </div>
-
+           <!-- deleted /<%- userId[0].userid %> -->
           <button type = "submit" class="logout">Log out</button>
 
       </nav>
@@ -64,10 +67,11 @@
     <div id="home-fullscreen">
       <div class="welcome-message">
         <p class="">SCROLL DOWN TO CHECK OUT SOME PUBLIC QUIZZES</p>
-        <button class="welcome-button"><a  id="createlink" class="createlink" href="/create/<%- userId[0].userid %>">CREATE NOW</a></button>
+        <button class="welcome-button"><a  id="createlink" class="createlink" href="/create">CREATE NOW</a></button>
       </div>
     </div>
 
+    <!-- DELETE /<%- userId[0].userid %> -->
 
 
     <div id="home-body">
@@ -82,15 +86,18 @@
             <h3><%- quiz.title %></h3>
             <p class="url-text">Created By: <%- quiz.name %></p>
 
-            <form method="get" action="quiz/<%-quiz.quizid%>">
+            <form method="get" action="/quiz/<%-quiz.userid%>/<%-quiz.quizid%>">
               <button class="home-start-quiz" type="submit">Try It!</button>
             </form>
 
+            <!-- DELETE /<%-quiz.quizid%> -->
+
             <br>
-            <p class="url-text">Share: localhost:8080/myquiz/<%- quiz.userid %>/<%- quiz.quizid %></p>
+            <p class="url-text">Share: localhost:8080/quiz/<%-quiz.userid%>/<%-quiz.quizid%></p>
           </div>
         </div>
         <%}%>
+
 
       </div>
     </div>

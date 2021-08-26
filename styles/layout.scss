@@ -14,12 +14,8 @@
   $button-font-stack: 'Suranna', serif;
   $logo-font-stack: 'Raleway Dots', cursive;
   $text-font-stack: 'Acme', sans-serif;
-  // $nav-font-stack: ;
-
-  // background GIF
   $background-gif: url(https://64.media.tumblr.com/728127882fa2fae0fee7f43f9540ac92/tumblr_p72c1hoEdT1uzwgsuo1_400.gifv);
-
-  // nav header
+  $quiz-background: url(https://cutewallpaper.org/21/professional-website-background/professional-images-for-website-background-13-Ride-Now-Pte-Ltd.jpg);
   $header-margin: 10px;
 
   html {
@@ -49,31 +45,31 @@
     // }
     // ------------
 
-    body {
-      background-color: #EEE;
+  body {
+    background-color: #EEE;
 
-      h1 {
-        color: #244751;
-      }
+    h1 {
+      color: #244751;
     }
+  }
 
     //Index.ejs
-    nav {
-      .logo {
-        font-family: $logo-font-stack;
-        font-size: 50px;
-        font-weight: 20px;
-        text-decoration: none;
-        color: black;
-        display:flex;
-        justify-content: flex-start;
-      }
-      .nav-header {
-        font-family: $button-font-stack;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
+  nav {
+    .logo {
+      font-family: $logo-font-stack;
+      font-size: 50px;
+      font-weight: 20px;
+      text-decoration: none;
+      color: black;
+      display:flex;
+      justify-content: flex-start;
+    }
+    .nav-header {
+      font-family: $button-font-stack;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -86,132 +82,35 @@
     margin: 10px 10px 0px 10px;
   }
 
-  // navbar
-  .create-quiz {
 
-  }
-
-  .my-quizzes {
-
-  }
-
-  .logout {
-
-  }
 
   // Welcome message
 
+  // QUIZ STARTED PAGE
 
 
-
-  // Create quiz//maybe copy & paste the nav css from above?
-  // body but I use class below for it
-  body {
-    display:flex;
-    flex-direction: column;
-
-    }
-
-    .create-quiz {
-    background-color: lightskyblue;
+  .quiz_content {
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    $text-font-stack: 'Acme', sans-serif;
-    // $header-margin: 100px;
-    }
-
-
-    .create-user-name {
-      max-width: fit-content;
-      display: flex;
-      justify-content: center;
-      color: black;
-      background-color: lightskyblue;
-      border-radius: 5px;
-      border: solid 3px black;
-    }
-    .quiz-title{
     font-family:$text-font-stack;
-    max-width: fit-content;
-    border-radius: 5px;
-    color: black;
-    border: solid 3px black;
-    background-color: lightskyblue;
-    }
+    border: 10px solid white;
+    margin: 0px 2px 0px 2px;
+    padding: 10px;
+  }
 
-    #question-answer-form {
-      font-family: $text-font-stack;
-      color: black;
-      background-color: lightskyblue;
-    }
-
-    .quiz-question {
-      font-family:$text-font-stack;
-      max-width: fit-content;
-      border-style: solid 5px black;
-      border-radius: 5px;
-      background-color: lightskyblue;
-    }
-
-    .quiz-answer {
-      font-family:$text-font-stack;
-      max-width: fit-content;
-      border-style: solid 5px black;
-      border-radius: 5px;
-      background-color: lightskyblue;
-    }
-
-    .possible-answer-container {
-      max-width: fit-content;
-      border-style: solid 5px black;
-      border-radius: 5px;
-      background-color: lightskyblue;
-
-    }
-
-    #answer1 #answer2 #answer3 #answer4 {
-      border-style: solid 5px black;
-      font-family:$text-font-stack;
-      border-radius: 5px;
-    }
-
-    .create-quiz-container {
-      border-style: solid 5px black;
-      border-radius: 5px;
-
-    }
-
-    p {
-      border-style: solid 5px black;
-      font-family:$text-font-stack;
-      border-radius: 5px;
-    }
-
-    .privacy-check {
-      display: flex;
-      font-family:$text-font-stack;
-
-    }
-
-    button {
-      display:flex;
-      justify-content: space-between;
-      flex-direction: row;
-      $text-font-stack: 'Acme', sans-serif;
-      background-color: white;
-      font-size: 15px;
-        padding: 15px;
-        border-style: solid 5px black;
-        border-radius: 10px;
-    }
-      button:hover {
-        box-shadow:rgba(180, 226, 235, 0.808)
-      }
+  .submit-my-quiz {
+    display:flex;
+    align-items: center;
+  }
 
 
-
+  .quiz-page {
+    background-image:$quiz-background;
+    background-size: cover;
+    margin: 0px 10px 0px 10px;
+  }
 
 
 
@@ -221,220 +120,28 @@
       justify-content: center;
       flex-direction: column;
       align-items: center;
-      margin: 20px;
+      margin: 0px 10px 0px 10px;
+      background-image:$quiz-background;
+      background-size: cover;
+      height:940px;
+    }
+
+    .result-box {
+      border: solid 10px white;
+      border-radius: 25px;
       font-family:$text-font-stack;
       font-weight: 15px;
-      background-image:$background-gif;
-      background-size: cover;
-      border-style: solid 20px black;
-      border-radius: 10px;
+      font-size: 30px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-
-
-
-
-
-
-// HOME PAGE --------------------------
-  #home-fullscreen {
-    display: flex;
-    justify-content: center;
-    background-image: url(https://thumbs.gfycat.com/BitesizedDesertedBallpython-size_restricted.gif);
-    height: 80vh;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 0px 10px 0px 10px;
-    color: white;
-    font-size: 50px;
-
-  }
-
-  .welcome-message {
-    display: flex;
-    flex-direction: column;
-    height: 400px;
-    width: 700px;
-    color:#333333;
-    align-self: center;
-    padding: 10px;
-    place-items: center;
-    place-content: center;
-  }
-
-  .welcome-button {
-    border: 5px solid black;
-  }
-
-  .welcome-button:hover {
-    box-shadow: 3px 3px rgba($color: #807070, $alpha: 1.0);
-    animation: ripple 1.5s linear infinite;
-    transition: all 0.7s ease;
-    &:hover
-    {
-     transform: scale(1.1);
-    }
-    &:focus
-    {
-      outline:none;
-    }
-  }
-
-  #home-body {
-    display: flex;
-    flex-direction: column;
-    margin: 0px 10px 10px 10px;
-    background-image: $background-gif;
-    background-size: cover;
-    // opacity: 0.5;
-  }
-
-  .public-quizzes {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    // text-align: -webkit-center;
-
-  }
-
-  .home-my-quizzes {
-    display: flex;
-    flex-direction: column;
-    place-items: center;
-    place-content: center;
-    width: 400px;
-    height: 400px;
-    margin: $header-margin;
-    padding: 1px 10px 5px 10px;
-    border: 10px solid white;
-    font-family: $text-font-stack;
-  }
-
-  .home-my-quizzes:hover {
-    box-shadow: 7px 7px rgba($color: #807070, $alpha: 1.0);
-    animation: ripple 1.5s linear infinite;
-    transition: all 0.7s ease;
-    &:hover
-    {
-     transform: scale(1.01);
-    }
-    &:focus
-    {
-      outline:none;
-    }
-  }
-
-
-  .home-start-quiz:hover {
-    box-shadow: 3px 3px rgba($color: #807070, $alpha: 1.0);
-    animation: ripple 1.5s linear infinite;
-    transition: all 0.7s ease;
-
-    &:hover
-    {
-     transform: scale(1.1);
-    }
-    &:focus
-    {
-      outline:none;
-    }
-  }
 
 // -----------------------------------------------
 
-
-// myquiz page -----------------------------------
-
-#myquiz-body {
-  display: flex;
-  flex-direction: column;
-  margin: 0px 10px 10px 10px;
-  background-image: $background-gif;
-  background-size: cover;
-  height: 900px;
-  // opacity: 0.5;
-}
-
-.myquiz-div {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  // text-align: -webkit-center;
-
-}
-
-.my-quizzes-box {
-  display: flex;
-  flex-direction: column;
-  place-items: center;
-  place-content: center;
-  width: 400px;
-  height: 400px;
-  margin: $header-margin;
-  padding: 1px 10px 5px 10px;
-  border: 10px solid white;
-  font-family: $text-font-stack;
-  background-color: beige;
-}
-
-.myquiz-buttons {
-  display: flex;
-  flex-direction: row;
-
-}
-
-.myquiz-start-quiz:hover {
-  box-shadow: 3px 3px rgba($color: #807070, $alpha: 1.0);
-  animation: ripple 1.5s linear infinite;
-  transition: all 0.7s ease;
-
-  &:hover
-  {
-   transform: scale(1.1);
-  }
-  &:focus
-  {
-    outline:none;
-  }
-}
-
-.delete-my-quiz:hover {
-  box-shadow: 3px 3px rgba($color: #807070, $alpha: 1.0);
-  animation: ripple 1.5s linear infinite;
-  transition: all 0.7s ease;
-
-  &:hover
-  {
-   transform: scale(1.1);
-  }
-  &:focus
-  {
-    outline:none;
-  }
-}
-
-.my-quizzes-box:hover {
-  box-shadow: 7px 7px rgba($color: #807070, $alpha: 1.0);
-  animation: ripple 1.5s linear infinite;
-  transition: all 0.7s ease;
-  &:hover
-  {
-   transform: scale(1.01);
-  }
-  &:focus
-  {
-    outline:none;
-  }
-}
-
 // ------------------------------------------------
-
-
-
-
   // // Buttons
   // .button {
   //   background-color: #4CAF50; /* Green */

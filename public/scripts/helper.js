@@ -57,13 +57,13 @@ $(document).ready(function() {
 
       <div class="possible-answer-container">
         <label for="answer1">Answer1</label>
-        <input type="text"></input><input id="a5" type="radio" name="is_right"></input><br>
+        <input type="text"></input><input id="a5" class="answer" type="radio" name="is_right"></input><br>
         <label for="answer1">Answer2</label>
-        <input type="text"></input><input id="a6" type="radio" name="is_right"></input><br>
+        <input type="text"></input><input id="a6" class="answer" type="radio" name="is_right"></input><br>
         <label for="answer1">Answer3</label>
-        <input type="text"></input><input id="a7" type="radio" name="is_right"></input><br>
+        <input type="text"></input><input id="a7" class="answer" type="radio" name="is_right"></input><br>
         <label for="answer1">Answer4</label>
-        <input type="text"></input><input id="a8" type="radio" name="is_right"></input><br>
+        <input type="text"></input><input id="a8" class="answer" type="radio" name="is_right"></input><br>
       </div>
       <div class="create-quiz-container"></div>
       </form>`;

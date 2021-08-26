@@ -1,0 +1,19 @@
+1. figure out all the routes
+  - gets: page viewing
+  - posts: happens when entering into the database
+    - usually happens in a form
+
+redirect: can pass in the route THEN need a get path for the redirect
+-can pass in the quizid, userid
+
+home is /
+
+create browser should just be /create
+Clicking create button should POST to /create
+once created, we want to redirect to homepage or myquizzes
+db.query ... Use an INSERT (return ID of inserted database), in the .then...
+
+Myquizzes route should be /users/:userid/quizzes
+START (button) should be a GET /users/:userid/quizzes/:quizid
+SUBMIT (button) should be a POST /users/:userid/quizzes/:quizid
+db.query ...   we can do a redirect to /users/:userid/quizzes/:quizid/results

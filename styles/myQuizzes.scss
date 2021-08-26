@@ -1,0 +1,94 @@
+@media only screen and (max-width: 2000px) {
+
+  $button-font-stack: 'Suranna', serif;
+  $logo-font-stack: 'Raleway Dots', cursive;
+  $text-font-stack: 'Acme', sans-serif;
+  $background-gif: url(https://64.media.tumblr.com/728127882fa2fae0fee7f43f9540ac92/tumblr_p72c1hoEdT1uzwgsuo1_400.gifv);
+  $quiz-background: url(https://cutewallpaper.org/21/professional-website-background/professional-images-for-website-background-13-Ride-Now-Pte-Ltd.jpg);
+  $header-margin: 10px;
+
+
+// myquiz page -----------------------------------
+
+  #myquiz-body {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 10px 10px 10px;
+    background-image: $quiz-background;
+    background-size: cover;
+    height: 900px;
+    // opacity: 0.5;
+  }
+
+  .myquiz-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    // text-align: -webkit-center;
+
+  }
+
+  .my-quizzes-box {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    place-content: center;
+    width: 400px;
+    height: 400px;
+    margin: $header-margin;
+    padding: 1px 10px 5px 10px;
+    border: 10px solid white;
+    font-family: $text-font-stack;
+  }
+
+  .myquiz-buttons {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .myquiz-start-quiz:hover {
+    box-shadow: 3px 3px rgba($color: #807070, $alpha: 1.0);
+    animation: ripple 1.5s linear infinite;
+    transition: all 0.7s ease;
+
+    &:hover
+    {
+    transform: scale(1.1);
+    }
+    &:focus
+    {
+      outline:none;
+    }
+  }
+
+  .delete-my-quiz:hover {
+    box-shadow: 3px 3px rgba($color: #807070, $alpha: 1.0);
+    animation: ripple 1.5s linear infinite;
+    transition: all 0.7s ease;
+
+    &:hover
+    {
+    transform: scale(1.1);
+    }
+    &:focus
+    {
+      outline:none;
+    }
+  }
+
+  .my-quizzes-box:hover {
+    box-shadow: 7px 7px rgba($color: #807070, $alpha: 1.0);
+    animation: ripple 1.5s linear infinite;
+    transition: all 0.7s ease;
+    &:hover
+    {
+    transform: scale(1.01);
+    }
+    &:focus
+    {
+      outline:none;
+    }
+  }
+
+}
