@@ -83,7 +83,6 @@ app.get("/", (req, res) => {
       let templateVars = { userData: user.rows, userId: user.rows };
 
       res.render("index", templateVars);
-      console.log(user.rows);
     })
     .catch(err => {
       res

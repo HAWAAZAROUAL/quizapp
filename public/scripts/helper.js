@@ -69,7 +69,6 @@ $(document).ready(function() {
       </form>`;
     $('#create-quiz-container').append($newQuestion);
 
-    console.log("HELLO WORRRRLD");
   });
 
 });

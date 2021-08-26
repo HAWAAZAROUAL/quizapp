@@ -32,7 +32,7 @@ module.exports = function(db) {
           // quizTitle: data.rows[0].title
         };
 
-        console.log('@@@@@@@@@@@@@@@@@@@', data.rows);
+
         res.render("quizzes", templateVars);
       })
       .catch((err) => {
@@ -51,7 +51,6 @@ module.exports = function(db) {
     `)
       .then(data => {
         let rightAnswers = data.rows[0].allAnswers;
-        console.log(rightAnswers);
       });
 
   });

@@ -18,7 +18,6 @@ module.exports = function(db) {
       .then(user => {
         let templateVars = {userData: user.rows, userId: user.rows[0].userid, quizId: user.rows[0].quizid};
         res.render("my_quizzes", templateVars);
-        console.log(user);
 
       })
       .catch(error => {
@@ -30,22 +29,23 @@ module.exports = function(db) {
 
 
 
-  // START button http://localhost:8080/quiz/2
-  router.post('/:id/:quiz_id', (req, res) => {
-    const quizId = req.params.quiz_id;
+  // START button http://localhost:8080/myquiz/2
+  router.post('/:id/:quizId', (req, res) => {
+    // const quizId = req.params.quiz_id;
+
+    const quizId = req.params.quizId;
     const userId = req.params.id;
-    console.log(quizId, userId);
-    res.redirect(`/quiz/${quizId}`);
+    res.redirect(`http://localhost:8080/quiz/${userId}/${quizId}`);
   });
 
 
   // delete button WE'RE currently at: /myquiz/1/
-  router.post('/:id/:quiz_id', (req, res) => {
+  router.post('/:id/:quizId/delete', (req, res) => {
 
     db.query(`
       DELETE FROM quizzes
-      WHERE quizzes.id=$1
-      `, [req.params.quiz_id])
+      WHERE quizzes.id=$1;
+      `, [req.params.quizId])
 
       .then(data => {
         const userId = req.params.id;

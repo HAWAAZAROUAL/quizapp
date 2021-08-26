@@ -61,12 +61,11 @@
 
 
           <div class="myquiz-buttons">
-            <form method="get" action="http://localhost:8080/quiz/<%-userId%>/<%-quiz.quizid%>">
-
+            <form method="post" action="http://localhost:8080/myquiz/<%-userId%>/<%-quiz.quizid%>">
             <button class="myquiz-start-quiz" type="submit">Start!</button>
             </form>
 
-            <form method="post" action="/myquiz">
+            <form method="post" action="http://localhost:8080/myquiz/<%-userId%>/<%-quiz.quizid%>/delete">
               <button class="delete-my-quiz" type="submit">Delete</button>
             </form>
           </div>

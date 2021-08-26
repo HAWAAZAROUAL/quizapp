@@ -27,7 +27,6 @@ module.exports = function(db) {
   // should be /create --- put userid in the BODY - check source of userId
   router.post('/', (req, res) => {
     // const userId = req.params.user_id;
-    console.log('REQ DOT BODYYYYYY: ', req.body);
 
     const quizName     = req.body["quizName"];
     const questionName = req.body["questionName"];
@@ -50,14 +49,13 @@ module.exports = function(db) {
       isRight = true;
     }
     db.query(`INSERT INTO quizzes( user_id ,title, is_private) VALUES ($1,$2,$3) returning id;`,[userId, quizName,isPrivate])
-      .then(data=>{
+      .then(data => {
         const quizId = data.rows[0].id;
         db.query(`INSERT INTO questions(quiz_id,question) VALUES($1,$2) returning id;`,[`${quizId}`,questionName])
-          .then(data=>{
+          .then(data => {
             const questionId = data.rows[0].id;
-            console.log(questionId);
             db.query(` INSERT INTO answers(question_id,answer,is_right)   VALUES($1,$2,$3),($4,$5,$6),($7,$8,$9),($10,$11,$12)   returning *;`,[`${questionId}`,answer1,isRight,`${questionId}`,answer2,isRight,`${questionId}`,answer3,isRight,`${questionId}`,answer4,isRight])
-              .then(data=>{
+              .then(data => {
                 res.redirect(`/myquiz/${userId}`);
               });
           });
