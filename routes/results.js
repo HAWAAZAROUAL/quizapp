@@ -41,20 +41,3 @@ module.exports = function(db) {
 
   return router;
 };
-
-
-
-
-
-
-
-
-// for the query above
-// GROUP BY quiz_id, questions.id, quizzes.title, answers.id, questions.question, answers.answer
-
-
-// db.query <%- %>
-// attempt:
-// SELECT count(results.*)
-// JOIN users ON users.id = results.user_id
-// WHERE user_id = 1;

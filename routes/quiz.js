@@ -64,7 +64,6 @@ module.exports = function(db) {
         }
         console.log('this is your final score', score);
       })
-
       .then(data => {
         db.query(`
           INSERT INTO results(user_id, quiz_id, score)
@@ -77,107 +76,5 @@ module.exports = function(db) {
 
 
 
-
-
-
-
   return router;
 };
-
-// if (userAnswer === answerQ1)
-//   console.log("this is correct");
-
-// db.query(`
-// Select answers.answer as allAnswers
-// From answers
-// where answers.is_right = true;
-// `)
-//   .then(data => {
-//     let rightAnswers = data.rows[0].allAnswers;
-//   });
-//   const score = 0;
-
-//   document.getElementById["checkAnswer"].onclick = function() {
-//     let checkedCorrect = document.getElementById("checkAnswer").checked = true;
-
-//     if (checkedCorrect && // compare is_right)
-//     score++
-
-//   };
-
-
-//   db.query(`
-//     INSERT INTO results (user_id, quiz_id, score)
-//     VALUES ($1, $2, $3)
-//     `, [req.params.userid, req.params.quizid, `${score}` ])
-//     .then(data => {
-//       // const userId = data.rows[0].userid;
-//       const quizid = req.params.quizid;
-//       const userid = req.params.userid;
-
-//       //result/userid/quizid
-//       res.redirect(`result/${userid}/${quizid}`);
-//     })
-//     .catch(error => {
-//       res.status(500)
-//         .json({ error: error.message });
-//     });
-// });
-
-
-
-
-
-
-
-
-// score = count(is_right) AND quiz.id
-
-//   let firstString = `INSERT INTO results (user_id, quiz_id, score) VALUES ($1, $2, $3) RETURNING *; `;
-
-//   db.query(firstString, [req.params.user_id, req.params.quiz_id, ${score}]) // IF I CAN GET THE SCORE SOMEHOW
-//     .then((data) => {
-//       console.log("data:", data);
-//       // res.redirect()
-//     });
-
-// });
-
-//   let score=0;
-// if (answers.answer = is_right) {
-//   score ++
-//   return score;
-// }
-
-
-
-
-//make a function in req.body that filters through the right answers.
-
-// router.post('/', (req, res) => {
-
-//   let isRight = req.body["is_right"]; // Boolean T/F
-//   let score = 0;
-
-//   document.getElementById("checkAnswer").onclick = function() {
-//     let correctChecked = document.getElementById("checkAnswer").checked = true;
-
-//     if (isRight && correctChecked) { // fix this (make it a boolean)
-//       score++;
-//     }
-//   };
-//   return score;
-// });
-
-
-
-// //hawaa's attempt
-// let score = 0;
-// document.getElementById("checkAnswer").onclick = function() {
-//   let answer = document.getElementById("answer").value;
-//   if (answer = ${is_right}) {
-//     score++;
-//     console.log(score);
-//   }
-//   document.getElementById("score").innerHTML = score;
-// }

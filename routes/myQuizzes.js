@@ -3,8 +3,6 @@ const users = require('./users');
 const router  = express.Router();
 
 
-// refer to the page
-// refer to the function for that page- MAKE FUNCTION getUserLogin
 
 module.exports = function(db) {
 // /myquiz  ---- put user_id in body
@@ -31,7 +29,6 @@ module.exports = function(db) {
 
   // START button http://localhost:8080/myquiz/2
   router.post('/:id/:quizId', (req, res) => {
-    // const quizId = req.params.quiz_id;
 
     const quizId = req.params.quizId;
     const userId = req.params.id;
