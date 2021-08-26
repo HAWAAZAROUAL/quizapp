@@ -8,7 +8,6 @@ module.exports = function(db) {
   router.get("/", (req, res) => {
 
     const userId = req.session.user_id;
-    console.log('THIS IS SESSION UESRID', userId);
 
     db.query(`
       SELECT users.name, users.id
@@ -43,7 +42,7 @@ module.exports = function(db) {
     if (isPrivate.checked) {
       isPrivate = true;
     }
-    console.log('THIS IS THE BODY', req.body);
+                  console.log('this is body', req.body);
 
     //loop through all the input field from html,add the contents to Arrays,then insert into tables
     for (let i = 0; i < numberOfQuestions; i++) {
@@ -54,7 +53,6 @@ module.exports = function(db) {
         let strAnswer = req.body["answer" + (4 * i + (j + 1))];
         answer.push(strAnswer);        //answer Array
         let strIsRightId = ("a" + (4 * i + (j + 1)));
-        console.log(strIsRight, strIsRightId);
         if (strIsRight === strIsRightId) {
           isRight1.push(true);
         } else {
@@ -66,20 +64,23 @@ module.exports = function(db) {
       isRight1 = [];
       answer = [];
     }
-    console.log(answers, isRight);
     //insert quizName to quizzes table
+                console.log('this is ANSWERS and questionName', answers, questionName);
+
     db.query(`INSERT INTO quizzes( user_id ,title, is_private) VALUES ($1,$2,$3) returning id;`, [userId, quizName, isPrivate])
       .then(data => {
         //get quizId from quiz
-        // console.log("THIS IS DATA", data.rows[0]);
         const quizId = data.rows[0].id;
         for (let i = 0; i < numberOfQuestions; i++) {
+
+
+          console.log('this is QUIZID:', quizId);
+
 
           createQuiz(userId, quizId, questionName[i], answers[i], isRight[i], res);
         }
       });
   });
-
   const createQuiz = function(userId, quizId, questionName, answers, isRight, res) {
     db.query(`INSERT INTO questions(quiz_id,question) VALUES($1,$2) returning id;`, [`${quizId}`, questionName])
       .then(data => {
