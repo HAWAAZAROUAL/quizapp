@@ -5,7 +5,11 @@
   $text-font-stack: 'Acme', sans-serif;
   $background-gif: url(https://64.media.tumblr.com/728127882fa2fae0fee7f43f9540ac92/tumblr_p72c1hoEdT1uzwgsuo1_400.gifv);
   $quiz-background: url(https://cutewallpaper.org/21/professional-website-background/professional-images-for-website-background-13-Ride-Now-Pte-Ltd.jpg);
+
   $header-margin: 10px;
+  html {
+    box-sizing: border-box;
+  }
 
 
 // myquiz page -----------------------------------
