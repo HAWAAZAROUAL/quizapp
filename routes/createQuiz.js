@@ -50,7 +50,7 @@ module.exports = function(db) {
         let strAnswer = req.body["answer" + (4 * i + (j + 1))];
         answer.push(strAnswer);        //answer Array
         let strIsRightId = ("a" + (4 * i + (j + 1)));
-        console.log(strIsRight, strIsRightId);
+
         if (strIsRight === ("a"+(4*i+1))) {
           isRight1=JSON.parse(true);
           isRight2=JSON.parse(false);
@@ -95,7 +95,7 @@ module.exports = function(db) {
           .then((result)=>{
           //3. Insert into the Options
             let questionAnswerPromises = [];
-              // console.log('THIS IS RESULT: ', result);
+
             for (let i = 0; i < numberOfQuestions; i++) {
 
               let questionId = result[i].rows[0].id;

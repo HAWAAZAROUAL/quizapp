@@ -49,25 +49,19 @@ module.exports = function(db) {
       .then(data => {
         if (question1Answer === data.rows[0].rightanswer) {
           score++;
-          console.log('this is your final score', score, question1Answer);
         }
         if (question2Answer === data.rows[1].rightanswer) {
           score++;
-          console.log('this is your final score', score, question2Answer);
         }
         if (question3Answer === data.rows[2].rightanswer) {
           score++;
-          console.log('this is your final score', score, question3Answer);
         }
         if (question4Answer === data.rows[3].rightanswer) {
           score++;
-          console.log('this is your final score', score, question4Answer);
         }
         if (question5Answer === data.rows[4].rightanswer) {
           score++;
-          console.log('this is your final score', score, question5Answer);
         }
-        console.log('this is your final score', score);
       })
       .then(data => {
         db.query(`
