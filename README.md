@@ -5,22 +5,22 @@ QuizWiz is a multi-page app, where you can create, take, delete or share quizzes
 # Screenshots 
 
 ### Homepage
-!["Home"]()
+!["Home"](https://github.com/kolpp15/quizapp/blob/master/docs/QuizWiz-Home.png?raw=true)
 
 ### Public Quizzes
-!["Public"]()
+!["Public"](https://github.com/kolpp15/quizapp/blob/master/docs/QuizWiz-Public.png?raw=true)
 
 ### Create a Quiz
-!["Create"]()
+!["Create"](https://github.com/kolpp15/quizapp/blob/master/docs/QuizWiz-Create.png?raw=true)
 
 ### My Quizzes
-!["MyQuiz"]()
+!["MyQuiz"](https://github.com/kolpp15/quizapp/blob/master/docs/QuizWiz-MyQuiz.png?raw=true)
 
 ### Quiz
-!["Quiz"]()
+!["Quiz"](https://github.com/kolpp15/quizapp/blob/master/docs/QuizWiz-Quiz.png?raw=true)
 
 ### Results
-!["Results"]()
+!["Results"](https://github.com/kolpp15/quizapp/blob/master/docs/QuizWiz-Result.png?raw=true)
 
 
 # Getting Started
