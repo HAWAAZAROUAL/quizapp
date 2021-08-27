@@ -61,7 +61,7 @@
             <% for (let j = 0; j < 4; j++) { %>
               <div id="input-answer">
                 <input class="checkAnswer" name="checkAnswer<%-i%>" value="<%- quizData[j].answer %>" type="radio"></input>
-                <p>Quiz Answers: <%- quizData[j+i].answer %></p>
+                <p><%- quizData[j+i].answer %></p>
               </div>
             <% } %>
           </div>

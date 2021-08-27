@@ -57,12 +57,14 @@
 
         <form id="question-answer-form" method="post" action="/create">
 
-          <input id="new-quiz-name" name="quizName" placeholder="Type a title"></input>
+<div class="add-answers">
+
+          <input class="new-quiz-name" name="quizName" placeholder="Type a title"></input>
 
           <h2 class="quiz-question"> Write your question here</h2>
 
         <div class="write-question">
-            <input type="text" name="questionName1" placeholder="Type your question here"></input>
+            <input class="questionName" type="text" name="questionName1" placeholder="Type your question here"></input>
             <input type="hidden" id="user_id" name="user_id" value="<%- userId %>">
 
             <h2 class="quiz-question"> Write the answers here</h2>
@@ -71,23 +73,33 @@
 
             <div class="possible-answer-container">
 
-              <label for="answer1">Answer1</label>
-              <input type="text" name="answer1"></input>
-              <input id="a1" type="radio" name="is_right1" value="a1"></input><br>
+              <div class="create-answer-section">
+                <label for="answer1">Answer1</label>
+                <input class="answer-box" type="text" name="answer1"></input>
+                <input class="create-a-radio" id="a1" type="radio" name="is_right1" value="a1"></input><br>
+              </div>
 
-              <label for="answer1">Answer2</label>
-              <input type="text" name="answer2"></input>
-              <input id="a2" type="radio" name="is_right1" value="a2"></input><br>
+              <div class="create-answer-section">
+                <label for="answer1">Answer2</label>
+                <input class="answer-box" type="text" name="answer2"></input>
+                <input class="create-a-radio"  id="a2" type="radio" name="is_right1" value="a2"></input><br>
+              </div>
 
-              <label for="answer1">Answer3</label>
-              <input type="text" name="answer3"></input>
-              <input id="a3" type="radio" name="is_right1" value="a3"></input><br>
+              <div class="create-answer-section">
+                <label for="answer1">Answer3</label>
+                <input class="answer-box" type="text" name="answer3"></input>
+                <input class="create-a-radio"  id="a3" type="radio" name="is_right1" value="a3"></input><br>
+              </div>
 
-              <label for="answer1">Answer4</label>
-              <input type="text" name="answer4"></input>
-              <input id="a4" type="radio" name="is_right1" value="a4"></input><br>
+              <div class="create-answer-section">
+                <label for="answer1">Answer4</label>
+                <input class="answer-box" type="text" name="answer4"></input>
+                <input class="create-a-radio"  id="a4" type="radio" name="is_right1" value="a4"></input><br>
+              </div>
+
             </div>
-        </div>
+</div>
+
             <div id="create-quiz-container" class="create-quiz-container"></div>
 
               <br>
