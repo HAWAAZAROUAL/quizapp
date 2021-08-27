@@ -1,23 +1,17 @@
 @media only screen and (max-width: 2000px) {
-  // See: https://sass-lang.com/
-
-  // NOTES ON CSS, THE . IS FOR CLASSES, THE # IS FOR id
-
-  //FONTS
-  // font-family: 'Acme', sans-serif;
-  // font-family: 'Cinzel', serif;
-  // font-family: 'Cinzel Decorative', cursive;
-  // font-family: 'Monoton', cursive;
-  // font-family: 'Raleway Dots', cursive;
-  // font-family: 'Suranna', serif;
-
-  $button-font-stack: 'Suranna', serif;
-  $logo-font-stack: 'Maven Pro', sans-serif;
-  $logo-font:'Bree Serif', serif;
-  $text-font-stack: 'Acme', sans-serif;
-  $background-gif: url(https://64.media.tumblr.com/728127882fa2fae0fee7f43f9540ac92/tumblr_p72c1hoEdT1uzwgsuo1_400.gifv);
+  $button-font-stack: "Suranna", serif;
+  $logo-font-stack: "Maven Pro", sans-serif;
+  $text-font-stack: "Acme", sans-serif;
+  $background-gif: url(https://i.pinimg.com/originals/a4/64/60/a46460eef9156cf9144b95fd2375cf3e.gif);
   $quiz-background: url(https://cutewallpaper.org/21/professional-website-background/professional-images-for-website-background-13-Ride-Now-Pte-Ltd.jpg);
+  $header-margin: 10px;
+  $pastel-blue: url(https://s3.amazonaws.com/spoonflower/public/design_thumbnails/0993/3023/dots3-pastel-too-blue_shop_thumb.png);
+  $pastel-purple: url(https://s3.amazonaws.com/spoonflower/public/design_thumbnails/0427/7276/0_0_solid_EEE0FF_pale_pastel_purple_shop_thumb.png);
+  $pastel-green: url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/dunn-edwards-2019-curated-colors-pale-cactus-pastel-green-de5673-solid-color-melissa-fague.jpg);
   $trial-background: url(https://i.pinimg.com/originals/52/11/33/5211331c3267926037327cb79eab9bd8.jpg);
+  $gradient: url(https://64.media.tumblr.com/ee843139aadcb41fa338d57431c5ee9c/tumblr_oiwyu3PV5S1tf8vylo1_1280.png);
+
+
   $header-margin: 10px;
 
   html {
@@ -100,15 +94,14 @@
       }
 
       .logo {
-        font-family: $logo-font;
-        color: coral;
         background-color: white;
         border:black solid 2px;
         padding: 1em 1em 1em 1em;
-        font-size: 22px;
+        font-size: 20px;
         font-weight: 15px;
         font-weight: bold;
       }
+
 
 
     .home-footer {
@@ -172,7 +165,7 @@
     font-family:$logo-font-stack;
     border: 10px solid white;
     margin: 0px 2px 0px 2px;
-    padding: 10px;
+    padding: 30px;
   }
 
   .submit-my-quiz {
@@ -180,7 +173,7 @@
     align-items: center;
   }
 
-  #checkAnswer {
+  .checkAnswer {
     transform: scale(1.5);
     margin: 0px 15px 0px 0px;
   }
@@ -189,25 +182,33 @@
     // background-image:$quiz-background;
     background-size: cover;
     margin: 0px 10px 0px 10px;
+    padding: 130px;
   }
 
   #input-answer{
     display: flex;
     flex-direction: row;
     align-items: center;
+    font-size: 25px;
   }
 
 
     //RESULTS PAGE -----------------
+
+    .results-body {
+
+      background-image: $gradient;
+      background-size: cover;
+    }
     .results-div {
       display:flex;
       justify-content: center;
       flex-direction: column;
       align-items: center;
-      margin: 0px 10px 0px 10px;
+      margin: px 10px 0px 10px;
       // background-image:$quiz-background;
       background-size: cover;
-      height:940px;
+      height:1100px;
     }
 
     .result-box {
@@ -220,6 +221,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin: 20px;
     }
 
 

@@ -29,7 +29,6 @@ module.exports = function(db) {
           userScore: result.rows[0].score,
           // we need totalquestions count...
         };
-        console.log('THIS IS THE DATA: ', result.rows);
         res.render("results", templateVars);
 
       })

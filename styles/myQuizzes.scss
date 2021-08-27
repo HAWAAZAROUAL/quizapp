@@ -1,14 +1,18 @@
 @media only screen and (max-width: 2000px) {
-
-  $button-font-stack: 'Suranna', serif;
-  $logo-font-stack: 'Maven Pro', sans-serif;
-  $text-font-stack: 'Acme', sans-serif;
-  $background-gif: url(https://64.media.tumblr.com/728127882fa2fae0fee7f43f9540ac92/tumblr_p72c1hoEdT1uzwgsuo1_400.gifv);
+  $button-font-stack: "Suranna", serif;
+  $logo-font-stack: "Maven Pro", sans-serif;
+  $text-font-stack: "Acme", sans-serif;
+  $background-gif: url(https://i.pinimg.com/originals/a4/64/60/a46460eef9156cf9144b95fd2375cf3e.gif);
   $quiz-background: url(https://cutewallpaper.org/21/professional-website-background/professional-images-for-website-background-13-Ride-Now-Pte-Ltd.jpg);
-
-  $gradient: url(https://64.media.tumblr.com/ee843139aadcb41fa338d57431c5ee9c/tumblr_oiwyu3PV5S1tf8vylo1_1280.png);
-
   $header-margin: 10px;
+  $pastel-blue: url(https://s3.amazonaws.com/spoonflower/public/design_thumbnails/0993/3023/dots3-pastel-too-blue_shop_thumb.png);
+  $pastel-purple: url(https://s3.amazonaws.com/spoonflower/public/design_thumbnails/0427/7276/0_0_solid_EEE0FF_pale_pastel_purple_shop_thumb.png);
+  $pastel-green: url(https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/dunn-edwards-2019-curated-colors-pale-cactus-pastel-green-de5673-solid-color-melissa-fague.jpg);
+  $trial-background: url(https://i.pinimg.com/originals/52/11/33/5211331c3267926037327cb79eab9bd8.jpg);
+  $gradient: url(https://64.media.tumblr.com/ee843139aadcb41fa338d57431c5ee9c/tumblr_oiwyu3PV5S1tf8vylo1_1280.png);
+  $header-margin: 10px;
+
+
   html {
     box-sizing: border-box;
   }
@@ -80,7 +84,8 @@
 .my-quiz-title {
 font-family: $logo-font-stack;
 }
-body{
+
+.myquiz-body{
   background-image: $gradient;
   background-size: cover;
 
@@ -89,7 +94,7 @@ body{
   #myquiz-body {
     display: flex;
     flex-direction: column;
-    margin: 10px 10px 10px 10px;
+    margin: 0px 10px 10px 10px;
     padding: 120px 0px 0px 0px;
     // background-image: $quiz-background;
     background-size: cover;

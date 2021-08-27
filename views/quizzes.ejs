@@ -25,6 +25,7 @@
 
   <body class="quiz-body">
     <header class="nav-header">
+
       <nav>
         <!-- logo will be a home button -->
         <button class="logo" type="button"><a href="/">QUIZ WIZ</a></button>
@@ -52,19 +53,19 @@
           <br>
           <div> <h1><%- quizData[0].title %></h1></div><br>
 
-          <% for (let i=0;i<quizData.length;i=i+4){%>
+          <% for (let i=0; i < quizData.length; i = i + 4 ) { %>
 
 
           <div class="quiz_content">
             <div ><h1> <%- quizData[i].question %></h3></div>
-            <% for (let j=0;j<4;j++){%>
-              <div class="input-answer">
+            <% for (let j = 0; j < 4; j++) { %>
+              <div id="input-answer">
                 <input class="checkAnswer" name="checkAnswer<%-i%>" value="<%- quizData[j].answer %>" type="radio"></input>
-                <p>Quiz Answers: <%- quizData[j].answer %></p>
+                <p>Quiz Answers: <%- quizData[j+i].answer %></p>
               </div>
-            <%}%>
+            <% } %>
           </div>
-          <%}%>
+          <% } %>
 
 
       <button class="submit-my-quiz" type="submit">Submit Quiz!</button>

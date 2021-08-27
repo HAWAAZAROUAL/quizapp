@@ -1,9 +1,9 @@
 --EACH USER HAS 3 SET OF QUIZZES
-INSERT INTO quizzes (user_id,title,is_private) VALUES (1,'Alice Quiz Title 1',false);
+INSERT INTO quizzes (user_id,title,is_private) VALUES (1,'VERY EASY MATH QUIZ',false);
 INSERT INTO quizzes (user_id,title,is_private) VALUES (2,'Kira Quiz Title 1',false);
 INSERT INTO quizzes (user_id,title,is_private) VALUES (3,'Amy Quiz Title 1',false);
 
-INSERT INTO quizzes (user_id,title,is_private) VALUES (1,'Alice Quiz Title 2',false);
+INSERT INTO quizzes (user_id,title,is_private) VALUES (1,'Select the right name',false);
 
 -- BELOW QUIZZES DO NOT HAVE ANY QUESTIONS / ANSWERS SEEDS
 INSERT INTO quizzes (user_id,title,is_private) VALUES (2,'Kira Quiz Title 2',false);

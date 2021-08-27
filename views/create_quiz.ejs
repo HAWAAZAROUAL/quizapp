@@ -31,15 +31,18 @@
 
 
 
-    <body>
+    <body class="body-not-home">
       <header class="nav-header">
+
+
         <nav>
           <!-- logo will be a home button -->
           <button class="logo" type="button"><a href="/">QUIZ WIZ</a></button>
 
             <div class="nav-buttons">
-              <a class="create-quiz" href="/create/<%- userId %>">Create a Quiz</a>
-              <a class="my-quizzes" href="/myquiz/<%- userId %>">My Quizzes</a>
+              <button class="create-quiz"><a  id="createlink" class="createlink" href="/create">Create a Quiz</a></button>
+
+              <button class="my-quizzes"><a id="myquizlink" class="myquizlink" href="/myquiz/<%- userId %>">My Quizzes</a></button>
             </div>
 
             <button type = "submit" class="btn btn-dark btn-sm">Log out</button>
@@ -47,8 +50,8 @@
         </nav>
       </header>
 
-      <div class="create-body">
-      <h1>Create Quiz for user: <%- userName.name %><h1>
+<div class="create-quiz-body">
+      <h1 class="create-quiz-welcome">Create Quiz for user: <%- userName.name %><h1>
 
         <h1 class="quiz-title"> Quiz Title</h1>
 
@@ -58,9 +61,10 @@
 
           <h2 class="quiz-question"> Write your question here</h2>
 
-          <div class="write-question">
-            <input type="text" name="questionName1" placeholder="Type your question here"></div>
-            <input type="text" name="user_id" placeholder="Type your question here" style="visibility: hidden;" ><%- userId %></div>
+        <div class="write-question">
+            <input type="text" name="questionName1" placeholder="Type your question here"></input>
+            <input type="hidden" id="user_id" name="user_id" value="<%- userId %>">
+
             <h2 class="quiz-question"> Write the answers here</h2>
 
             <p> Check off the correct answer</p>
@@ -83,7 +87,7 @@
               <input type="text" name="answer4"></input>
               <input id="a4" type="radio" name="is_right1" value="a4"></input><br>
             </div>
-
+        </div>
             <div id="create-quiz-container" class="create-quiz-container"></div>
 
               <br>
@@ -105,7 +109,8 @@
 
         </form>
 
-      </div>
+
+</div>
       </body>
 
 

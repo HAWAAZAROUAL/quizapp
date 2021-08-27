@@ -22,12 +22,12 @@
 
   <body class="results-body">
 
-    <header>
+    <header class="nav-header">
       <nav>
         <!-- logo will be a home button -->
         <button class="logo" type="button"><a href="/">QUIZ WIZ</a></button>
 
-          <div class="nav-header">
+          <div class="nav-buttons">
             <button class="create-quiz"><a  id="createlink" class="createlink" href="/create">Create a Quiz</a></button>
 
             <button class="my-quizzes"><a id="myquizlink" class="myquizlink" href="/myquiz/<%-userId%>">My Quizzes</a></button>
@@ -44,11 +44,11 @@
         <h1>Result for: <%- userName %></h1>
 
         <br>
-          <p>Quiz Title: <%- quizTitle %></p><br>
-          <p>Total questions: 5 questions</p><br>
-          <p>Total correct: <%- userScore %> questions</p><br>
+          <p>Quiz Title:<strong> <%- quizTitle %></strong></p><br>
+          <p>Total questions:<strong> 5 questions</strong></p><br>
+          <p>Total correct:<strong> <%- userScore %> questions</strong></p><br>
           <br>
-          <p>Share your results for this attempt: http://localhost:8080/results/<%-userId%>/<%-quizId%></p>
+          <p>Share your results for this attempt:<strong> http://localhost:8080/results/<%-userId%>/<%-quizId%></strong></p>
       </div>
 
     </div>
