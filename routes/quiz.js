@@ -23,6 +23,7 @@ module.exports = function(db) {
 
         };
         res.render("quizzes", templateVars);
+        console.log('awefioahwoeifha', data.rows);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });

@@ -1,49 +1,77 @@
 @media only screen and (max-width: 2000px) {
 
   $button-font-stack: 'Suranna', serif;
-  $logo-font-stack: 'Raleway Dots', cursive;
+  $logo-font-stack: 'Maven Pro', sans-serif;
   $text-font-stack: 'Acme', sans-serif;
   $background-gif: url(https://64.media.tumblr.com/728127882fa2fae0fee7f43f9540ac92/tumblr_p72c1hoEdT1uzwgsuo1_400.gifv);
   $quiz-background: url(https://cutewallpaper.org/21/professional-website-background/professional-images-for-website-background-13-Ride-Now-Pte-Ltd.jpg);
+  $pastel-purple: url(https://s3.amazonaws.com/spoonflower/public/design_thumbnails/0427/7276/0_0_solid_EEE0FF_pale_pastel_purple_shop_thumb.png);
+  $pastel-blue: url(https://s3.amazonaws.com/spoonflower/public/design_thumbnails/0993/3023/dots3-pastel-too-blue_shop_thumb.png);
   $header-margin: 10px;
 
   // Create quiz//maybe copy & paste the nav css from above?
   // body but I use class below for it
 
+  body {
+    background-color: white;
+  }
+
+  // h1 {
+  //   color: black;
+  // }
+  //   //Index.ejs
+
+
+    .home-footer {
+      font-family: $logo-font-stack;
+
+    }
+
+
+
   .create-body {
     display: flex;
     flex-direction: column;
-    margin: 0px 10px 0px 10px;
-    background-image: $quiz-background;
-    background-size: cover;
-    font-family: $text-font-stack;
-    padding: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    // margin: 0px 10px 0px 10px;
+    // background-image: $quiz-background;
+    // background-size: cover;
+    background-color: hsl(0, 0%, 100%);
+    // font-family: $text-font-stack;
+    padding: 120px;
   }
 
   .quiz-title-section {
+    font-family: $logo-font-stack;
     display: flex;
     flex-direction: column;
     margin: 0px 0px 30px 0px;
     #new-quiz-name {
+      font-family: $logo-font-stack;
       width: 500px;
       height: 50px;
     }
   }
 
   .quiz-question-section {
+    font-family: $logo-font-stack;
     display: flex;
     flex-direction: column;
     margin: 0px 0px 30px 0px;
     #new-quiz-question {
+      font-family: $logo-font-stack;
       width: 500px;
       height: 50px;
     }
   }
 
   .quiz-answer-section {
+    font-family: $logo-font-stack;
     display: flex;
     flex-direction: column;
     .answertext {
+      font-family: $logo-font-stack;
       width: 500px;
       height: 50px;
     }
@@ -59,37 +87,32 @@
     margin: 30px 0px 0px 10px;
   }
 
-  .creating-buttons {
-    display: flex;
-    flex-direction: row;
-  }
+
 
   #public-check {
     margin: 0px 0px 0px 20px;
   }
 
-  button {
+  .creating-buttons {
+    font-family: $logo-font-stack;
     display:flex;
     justify-content: space-between;
     flex-direction: row;
-    $text-font-stack: 'Acme', sans-serif;
+    // $text-font-stack: 'Acme', sans-serif;
     background-color: white;
     font-size: 15px;
     padding: 15px;
-    border-style: solid 5px black;
-    border-radius: 10px;
+    // border-style: solid 5px black;
+    // border-radius: 10px;
   }
 
 
-  // .create-body{
-  //   display:flex;
-  //   flex-direction: column;
-  //   justify-content:center;
-  //   align-items: left;
-  //   background-image: $quiz-background;
-  //   margin: 0px 10px 0px 10px;
-  //   padding: 20px;
-  //   }
+
+
+
+  .create-body{
+  background-color: $pastel-blue;
+    }
 
 
 
@@ -148,15 +171,15 @@
   //   }
 
 
-  //   .possible-answer-container {
-  //     display: flex;
-  //     flex-direction: column;
-  //     max-width: fit-content;
-  //     border-style: solid 5px black;
-  //     border-radius: 5px;
-  //     font-size: 25px;
-  //     margin: 10px;
-  //   }
+    // .possible-answer-container {
+    //   display: flex;
+    //   flex-direction: column;
+    //   max-width: fit-content;
+    //   border-style: solid 5px black;
+    //   border-radius: 5px;
+    //   font-size: 20px;
+    //   margin: 10px;
+    // }
 
   //   .possible-answer-container>.answertext {
   //     width: 500px;
@@ -199,17 +222,17 @@
   //   }
 
 
-  //   .answer-text-radio {
-  //     display: flex;
-  //     flex-direction: row;
-  //     align-items: center;
-  //     margin: 0px 0px 20px 0px;
-  //   }
+    // .answer-text-radio {
+    //   display: flex;
+    //   flex-direction: row;
+    //   align-items: center;
+    //   margin: 0px 0px 20px 0px;
+    // }
 
-  //   .creating-buttons {
-  //     display: flex;
-  //     flex-direction: row;
-  //   }
+    // .creating-buttons {
+    //   display: flex;
+    //   flex-direction: row;
+    // }
 
 
 

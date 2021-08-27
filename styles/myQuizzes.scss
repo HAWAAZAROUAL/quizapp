@@ -1,24 +1,97 @@
 @media only screen and (max-width: 2000px) {
 
   $button-font-stack: 'Suranna', serif;
-  $logo-font-stack: 'Raleway Dots', cursive;
+  $logo-font-stack: 'Maven Pro', sans-serif;
   $text-font-stack: 'Acme', sans-serif;
   $background-gif: url(https://64.media.tumblr.com/728127882fa2fae0fee7f43f9540ac92/tumblr_p72c1hoEdT1uzwgsuo1_400.gifv);
   $quiz-background: url(https://cutewallpaper.org/21/professional-website-background/professional-images-for-website-background-13-Ride-Now-Pte-Ltd.jpg);
+
+  $gradient: url(https://64.media.tumblr.com/ee843139aadcb41fa338d57431c5ee9c/tumblr_oiwyu3PV5S1tf8vylo1_1280.png);
 
   $header-margin: 10px;
   html {
     box-sizing: border-box;
   }
 
+  // body {
+  //   background-color:white;
+
+  // }
+
+  h1 {
+    color: black;
+  }
+    //Index.ejs
+
+    // .nav-header {
+      //   // font-family: $button-font-stack;
+      //   display: flex;
+      //   justify-content: space-between;
+      //   align-items: center;
+      // }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        padding: 1em 0 1em 0;
+
+      }
+      .nav-header {
+        height: 120px;
+        width: 100vw;
+        color: black;
+        position: fixed;
+        z-index: 2;
+        font-weight:20px;
+        font-size: 20px;
+        background-color: white;
+        font-family: $logo-font-stack;
+        border-bottom: solid black 2px;
+        .nav-buttons {
+          display: flex;
+          justify-content: space-between;
+          flex-direction: row;
+          align-items: center;
+          background-color: white;
+
+        }
+
+      }
+
+      .logo {
+        background-color: white;
+        border:black solid 2px;
+        padding: 1em 1em 1em 1em;
+        font-size: 20px;
+        font-weight: 15px;
+        font-weight: bold;
+      }
+
+
+    .home-footer {
+      font-family: $logo-font-stack;
+
+    }
 
 // myquiz page -----------------------------------
+
+.my-quiz-title {
+font-family: $logo-font-stack;
+}
+body{
+  background-image: $gradient;
+  background-size: cover;
+
+}
 
   #myquiz-body {
     display: flex;
     flex-direction: column;
-    margin: 0px 10px 10px 10px;
-    background-image: $quiz-background;
+    margin: 10px 10px 10px 10px;
+    padding: 120px 0px 0px 0px;
+    // background-image: $quiz-background;
     background-size: cover;
     height: 900px;
     // opacity: 0.5;
@@ -42,8 +115,8 @@
     height: 400px;
     margin: $header-margin;
     padding: 1px 10px 5px 10px;
-    border: 10px solid white;
-    font-family: $text-font-stack;
+    border: 5px solid black;
+    font-family: $logo-font-stack;
   }
 
   .myquiz-buttons {
@@ -52,7 +125,7 @@
   }
 
   .myquiz-start-quiz:hover {
-    box-shadow: 3px 3px rgba($color: #807070, $alpha: 1.0);
+    box-shadow: 3px 3px rgba($color: coral, $alpha: 1.0);
     animation: ripple 1.5s linear infinite;
     transition: all 0.7s ease;
 
@@ -67,7 +140,7 @@
   }
 
   .delete-my-quiz:hover {
-    box-shadow: 3px 3px rgba($color: #807070, $alpha: 1.0);
+    box-shadow: 3px 3px rgba($color: coral, $alpha: 1.0);
     animation: ripple 1.5s linear infinite;
     transition: all 0.7s ease;
 
@@ -82,7 +155,7 @@
   }
 
   .my-quizzes-box:hover {
-    box-shadow: 7px 7px rgba($color: #807070, $alpha: 1.0);
+    box-shadow: 7px 7px rgba($color: rgb(123, 230, 230), $alpha: 1.0);
     animation: ripple 1.5s linear infinite;
     transition: all 0.7s ease;
     &:hover
