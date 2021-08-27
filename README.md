@@ -7,6 +7,9 @@ QuizWiz is a multi-page app, where you can create, take, delete or share quizzes
 ### Homepage
 !["Home"]()
 
+### Public Quizzes
+!["Public"]()
+
 ### Create a Quiz
 !["Create"]()
 
