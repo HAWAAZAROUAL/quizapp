@@ -52,24 +52,10 @@ app.use("/api/users",   usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 app.use("/create",      createQuiz(db));
-app.use("/quiz",        quizRoutes(db)); ///users/:userid/quizzes/:quizid
-app.use("/myquiz",      myQuizzes(db));  ///users/:userid/quizzes/
-app.use("/results",     myResults(db));  ///users/:userid/quizzes/:quizid/results
+app.use("/quiz",        quizRoutes(db));
+app.use("/myquiz",      myQuizzes(db));
+app.use("/results",     myResults(db));
 
-
-// HOME:        /                               (GET)
-
-// CREATE PAGE: /create                         (GET)
-// CreateNew  : /create                         (POST)
-
-// MyQuiz PAGE: /users/:userid/quizzes          (GET)
-// startQ PAGE: /users/:userid/quizzes/:quizid  (GET)
-// SubmiQ PAGE: /users/:userid/quizzes/:quizid  (POST)
-
-
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
   db.query(`

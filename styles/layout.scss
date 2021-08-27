@@ -206,7 +206,6 @@
       flex-direction: column;
       align-items: center;
       margin: px 10px 0px 10px;
-      // background-image:$quiz-background;
       background-size: cover;
       height:1100px;
     }
@@ -214,7 +213,6 @@
     .result-box {
       border: solid 10px white;
       border-radius: 25px;
-      // font-family:$text-font-stack;
       font-weight: 15px;
       font-size: 30px;
       padding: 15px;
@@ -225,27 +223,4 @@
     }
 
 
-// -----------------------------------------------
-
-// ------------------------------------------------
-  // // Buttons
-  // .button {
-  //   background-color: #4CAF50; /* Green */
-  //   border: none;
-  //   color: white;
-  //   padding: 15px 32px;
-  //   text-align: center;
-  //   text-decoration: none;
-  //   display: inline-block;
-  //   font-size: 30px;
-  //   font-family: $button-font-stack;
-  // }
-
-
-
-  //qquiz.ejs
-
-
-
-  //don't delete this bracket below!
 }

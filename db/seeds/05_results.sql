@@ -1,4 +1,4 @@
--- -- ALICE TOOK QUIZ # 1 THREE TIMES
+-- -- ALICE TOOK QUIZ # 1 THREE TIMES COMMENTED OUT FOR REAL DATA INCOMING
 -- INSERT INTO results(user_id, quiz_id, score) VALUES(1, 1, 10);
 -- INSERT INTO results(user_id, quiz_id, score) VALUES(1, 1, 5);
 -- INSERT INTO results(user_id, quiz_id, score) VALUES(1, 1, 0);
