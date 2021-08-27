@@ -5,22 +5,22 @@ QuizWiz is a multi-page app, where you can create, take, delete or share quizzes
 # Screenshots 
 
 ### Homepage
-!["Home"](https://github.com/kolpp15/quizapp/blob/master/docs/QuizWiz-Home.png?raw=true)
+!["Home"](https://github.com/kolpp15/quizapp/blob/main/docs/QuizWiz-Home.png?raw=true)
 
 ### Public Quizzes
-!["Public"](https://github.com/kolpp15/quizapp/blob/master/docs/QuizWiz-Public.png?raw=true)
+!["Public"](https://github.com/kolpp15/quizapp/blob/main/docs/QuizWiz-Public.png?raw=true)
 
 ### Create a Quiz
-!["Create"](https://github.com/kolpp15/quizapp/blob/master/docs/QuizWiz-Create.png?raw=true)
+!["Create"](https://github.com/kolpp15/quizapp/blob/main/docs/QuizWiz-Create.png?raw=true)
 
 ### My Quizzes
-!["MyQuiz"](https://github.com/kolpp15/quizapp/blob/master/docs/QuizWiz-MyQuiz.png?raw=true)
+!["MyQuiz"](https://github.com/kolpp15/quizapp/blob/main/docs/QuizWiz-MyQuiz.png?raw=true)
 
 ### Quiz
-!["Quiz"](https://github.com/kolpp15/quizapp/blob/master/docs/QuizWiz-Quiz.png?raw=true)
+!["Quiz"](https://github.com/kolpp15/quizapp/blob/main/docs/QuizWiz-Quiz.png?raw=true)
 
 ### Results
-!["Results"](https://github.com/kolpp15/quizapp/blob/master/docs/QuizWiz-Result.png?raw=true)
+!["Results"](https://github.com/kolpp15/quizapp/blob/main/docs/QuizWiz-Result.png?raw=true)
 
 
 # Getting Started
