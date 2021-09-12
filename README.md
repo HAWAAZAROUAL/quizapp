@@ -1,6 +1,6 @@
 # QuizWiz
 
-QuizWiz is a multi-page app, where you can create, take, delete or share quizzes. When creating, you can make the quiz either public or private. Upon completion, you'll be able to see your results and share it with your friends. 
+QuizWiz is a multi-page app, where you can create, take, delete or share quizzes. A couple features are that you can choose if a quiz is public or private which will control if your quiz show on the app homepage. Another feature is that you can share your results with friends  via sharable link. All quizzes have a URL which makes a quiz sharable to those who receive the link.
 
 # Screenshots 
 
